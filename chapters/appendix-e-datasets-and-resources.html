@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-chapters/appendix-e-datasets-and-resources" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Appendix E: Datasets and Resources | Physical AI &amp; Humanoid Robotics</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://muskaanfayyaz.github.io/Physical-AI-Humanoid-Robotics/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://muskaanfayyaz.github.io/Physical-AI-Humanoid-Robotics/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://muskaanfayyaz.github.io/Physical-AI-Humanoid-Robotics/chapters/appendix-e-datasets-and-resources"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Appendix E: Datasets and Resources | Physical AI &amp; Humanoid Robotics"><meta data-rh="true" name="description" content="This appendix catalogs publicly available datasets, pre-trained models, 3D assets, and community resources for Physical AI and humanoid robotics research and development."><meta data-rh="true" property="og:description" content="This appendix catalogs publicly available datasets, pre-trained models, 3D assets, and community resources for Physical AI and humanoid robotics research and development."><link data-rh="true" rel="icon" href="/Physical-AI-Humanoid-Robotics/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://muskaanfayyaz.github.io/Physical-AI-Humanoid-Robotics/chapters/appendix-e-datasets-and-resources"><link data-rh="true" rel="alternate" href="https://muskaanfayyaz.github.io/Physical-AI-Humanoid-Robotics/chapters/appendix-e-datasets-and-resources" hreflang="en"><link data-rh="true" rel="alternate" href="https://muskaanfayyaz.github.io/Physical-AI-Humanoid-Robotics/chapters/appendix-e-datasets-and-resources" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Appendix E: Datasets and Resources","item":"https://muskaanfayyaz.github.io/Physical-AI-Humanoid-Robotics/chapters/appendix-e-datasets-and-resources"}]}</script><link rel="stylesheet" href="/Physical-AI-Humanoid-Robotics/assets/css/styles.a722bc7b.css">
+<script src="/Physical-AI-Humanoid-Robotics/assets/js/runtime~main.b8d8868e.js" defer="defer"></script>
+<script src="/Physical-AI-Humanoid-Robotics/assets/js/main.5b5b8a1c.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Physical-AI-Humanoid-Robotics/"><div class="navbar__logo"><img src="/Physical-AI-Humanoid-Robotics/img/logo-transparent.png" alt="Physical AI Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/Physical-AI-Humanoid-Robotics/img/logo-transparent.png" alt="Physical AI Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Physical AI &amp; Humanoid Robotics</b></a><a class="navbar__item navbar__link" href="/Physical-AI-Humanoid-Robotics/">Textbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/muskaanfayyaz/Physical-AI-Humanoid-Robotics" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Physical-AI-Humanoid-Robotics/"><span title="About" class="linkLabel_WmDU">About</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Physical-AI-Humanoid-Robotics/chapters/chapter-01-introduction-to-physical-ai"><span title="Weeks 1-2: Foundations" class="categoryLinkLabel_W154">Weeks 1-2: Foundations</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Physical-AI-Humanoid-Robotics/chapters/chapter-03-introduction-to-ros2"><span title="Weeks 3-5: ROS 2 Fundamentals" class="categoryLinkLabel_W154">Weeks 3-5: ROS 2 Fundamentals</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Physical-AI-Humanoid-Robotics/chapters/chapter-06-physics-simulation-with-gazebo"><span title="Weeks 6-7: Simulation" class="categoryLinkLabel_W154">Weeks 6-7: Simulation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Physical-AI-Humanoid-Robotics/chapters/chapter-08-nvidia-isaac-platform"><span title="Weeks 8-10: NVIDIA Isaac Platform" class="categoryLinkLabel_W154">Weeks 8-10: NVIDIA Isaac Platform</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Physical-AI-Humanoid-Robotics/chapters/chapter-11-humanoid-robot-kinematics-and-dynamics"><span title="Weeks 11-12: Humanoid Development" class="categoryLinkLabel_W154">Weeks 11-12: Humanoid Development</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Physical-AI-Humanoid-Robotics/chapters/chapter-15-conversational-robotics"><span title="Week 13: Conversational AI" class="categoryLinkLabel_W154">Week 13: Conversational AI</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Physical-AI-Humanoid-Robotics/chapters/chapter-16-sim-to-real-transfer"><span title="Final Weeks: Deployment &amp; Capstone" class="categoryLinkLabel_W154">Final Weeks: Deployment &amp; Capstone</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/Physical-AI-Humanoid-Robotics/chapters/appendix-a-hardware-setup-guides"><span title="Reference Materials" class="categoryLinkLabel_W154">Reference Materials</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Physical-AI-Humanoid-Robotics/chapters/appendix-a-hardware-setup-guides"><span title="Appendix A: Hardware Setup Guides" class="linkLabel_WmDU">Appendix A: Hardware Setup Guides</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Physical-AI-Humanoid-Robotics/chapters/appendix-b-software-installation"><span title="Appendix B: Software Installation" class="linkLabel_WmDU">Appendix B: Software Installation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Physical-AI-Humanoid-Robotics/chapters/appendix-c-reference-materials"><span title="Appendix C: Reference Materials" class="linkLabel_WmDU">Appendix C: Reference Materials</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Physical-AI-Humanoid-Robotics/chapters/appendix-d-mathematical-foundations"><span title="Appendix D: Mathematical Foundations" class="linkLabel_WmDU">Appendix D: Mathematical Foundations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/Physical-AI-Humanoid-Robotics/chapters/appendix-e-datasets-and-resources"><span title="Appendix E: Datasets and Resources" class="linkLabel_WmDU">Appendix E: Datasets and Resources</span></a></li></ul></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/Physical-AI-Humanoid-Robotics/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Reference Materials</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Appendix E: Datasets and Resources</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Appendix E: Datasets and Resources</h1></header>
+<p>This appendix catalogs publicly available datasets, pre-trained models, 3D assets, and community resources for Physical AI and humanoid robotics research and development.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="e1-publicly-available-robot-datasets">E.1 Publicly Available Robot Datasets<a href="#e1-publicly-available-robot-datasets" class="hash-link" aria-label="Direct link to E.1 Publicly Available Robot Datasets" title="Direct link to E.1 Publicly Available Robot Datasets" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e11-manipulation-datasets">E.1.1 Manipulation Datasets<a href="#e11-manipulation-datasets" class="hash-link" aria-label="Direct link to E.1.1 Manipulation Datasets" title="Direct link to E.1.1 Manipulation Datasets" translate="no">​</a></h3>
+<p><strong>YCB Object and Model Set</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> 77 household objects with high-quality 3D meshes, texture maps, and physical properties</li>
+<li class=""><strong>Content:</strong> Kitchen items, tools, food packages, toys</li>
+<li class=""><strong>Formats:</strong> OBJ, STL meshes; texture images; physics parameters</li>
+<li class=""><strong>Use Cases:</strong> Grasping, manipulation planning, object recognition</li>
+<li class=""><strong>Size:</strong> ~5 GB (full dataset)</li>
+<li class=""><strong>Access:</strong> <a href="http://ycb-benchmarks.s3-website-us-east-1.amazonaws.com/" target="_blank" rel="noopener noreferrer" class="">http://ycb-benchmarks.s3-website-us-east-1.amazonaws.com/</a></li>
+<li class=""><strong>License:</strong> Creative Commons Attribution 4.0</li>
+</ul>
+<p><strong>YCB-Video Dataset</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> RGB-D video sequences of YCB objects in real scenes</li>
+<li class=""><strong>Content:</strong> 92 video sequences, 133,827 frames</li>
+<li class=""><strong>Annotations:</strong> 6D object poses, segmentation masks</li>
+<li class=""><strong>Use Cases:</strong> 6D pose estimation, object tracking</li>
+<li class=""><strong>Size:</strong> ~12 GB</li>
+<li class=""><strong>Access:</strong> <a href="https://rse-lab.cs.washington.edu/projects/posecnn/" target="_blank" rel="noopener noreferrer" class="">https://rse-lab.cs.washington.edu/projects/posecnn/</a></li>
+<li class=""><strong>Citation:</strong> Xiang et al., &quot;PoseCNN: A Convolutional Neural Network for 6D Object Pose Estimation&quot;, RSS 2018</li>
+</ul>
+<p><strong>Google Scanned Objects</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> High-quality 3D scans of household objects</li>
+<li class=""><strong>Content:</strong> 1,030 objects scanned with structure-from-motion</li>
+<li class=""><strong>Formats:</strong> OBJ meshes with textures</li>
+<li class=""><strong>Quality:</strong> Watertight meshes, photorealistic textures</li>
+<li class=""><strong>Use Cases:</strong> Simulation, synthetic data generation</li>
+<li class=""><strong>Size:</strong> ~8 GB</li>
+<li class=""><strong>Access:</strong> <a href="https://app.ignitionrobotics.org/GoogleResearch/fuel/collections/Google%20Scanned%20Objects" target="_blank" rel="noopener noreferrer" class="">https://app.ignitionrobotics.org/GoogleResearch/fuel/collections/Google%20Scanned%20Objects</a></li>
+<li class=""><strong>License:</strong> Creative Commons BY 4.0</li>
+</ul>
+<p><strong>ACRONYM Grasping Dataset</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> 17.7M parallel-jaw grasps on 8,872 ShapeNet objects</li>
+<li class=""><strong>Content:</strong> Grasp poses, success predictions, object meshes</li>
+<li class=""><strong>Format:</strong> HDF5 files with grasp data</li>
+<li class=""><strong>Use Cases:</strong> Grasp synthesis, learning-based grasping</li>
+<li class=""><strong>Size:</strong> ~6 GB</li>
+<li class=""><strong>Access:</strong> <a href="https://sites.google.com/nvidia.com/graspdataset" target="_blank" rel="noopener noreferrer" class="">https://sites.google.com/nvidia.com/graspdataset</a></li>
+<li class=""><strong>Citation:</strong> Eppner et al., &quot;ACRONYM: A Large-Scale Grasp Dataset&quot;, ICRA 2021</li>
+</ul>
+<p><strong>Columbia Grasp Database</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Grasps for household objects using various grippers</li>
+<li class=""><strong>Content:</strong> 287 objects, multiple gripper configurations</li>
+<li class=""><strong>Annotations:</strong> Grasp quality metrics, success rates</li>
+<li class=""><strong>Use Cases:</strong> Grasp planning, gripper design evaluation</li>
+<li class=""><strong>Access:</strong> <a href="https://grasping.cs.columbia.edu/" target="_blank" rel="noopener noreferrer" class="">https://grasping.cs.columbia.edu/</a></li>
+<li class=""><strong>Citation:</strong> Goldfeder et al., &quot;The Columbia Grasp Database&quot;, ICRA 2009</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e12-navigation-datasets">E.1.2 Navigation Datasets<a href="#e12-navigation-datasets" class="hash-link" aria-label="Direct link to E.1.2 Navigation Datasets" title="Direct link to E.1.2 Navigation Datasets" translate="no">​</a></h3>
+<p><strong>TUM RGB-D Dataset</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> RGB-D sequences for visual odometry and SLAM evaluation</li>
+<li class=""><strong>Content:</strong> 41 sequences in office/home environments</li>
+<li class=""><strong>Sensors:</strong> Microsoft Kinect (640×480 RGB-D at 30 Hz)</li>
+<li class=""><strong>Ground Truth:</strong> Motion capture system (high precision)</li>
+<li class=""><strong>Use Cases:</strong> Visual SLAM, RGB-D odometry, depth estimation</li>
+<li class=""><strong>Size:</strong> ~34 GB (full dataset)</li>
+<li class=""><strong>Access:</strong> <a href="https://vision.in.tum.de/data/datasets/rgbd-dataset" target="_blank" rel="noopener noreferrer" class="">https://vision.in.tum.de/data/datasets/rgbd-dataset</a></li>
+<li class=""><strong>Citation:</strong> Sturm et al., &quot;A Benchmark for RGB-D SLAM Evaluation&quot;, IROS 2012</li>
+</ul>
+<p><strong>EuRoC MAV Dataset</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Visual-inertial datasets from micro aerial vehicle</li>
+<li class=""><strong>Content:</strong> 11 sequences in machine hall and room environments</li>
+<li class=""><strong>Sensors:</strong> Stereo cameras (20 Hz), IMU (200 Hz)</li>
+<li class=""><strong>Ground Truth:</strong> Laser tracker and motion capture</li>
+<li class=""><strong>Use Cases:</strong> Visual-inertial odometry, SLAM</li>
+<li class=""><strong>Size:</strong> ~20 GB</li>
+<li class=""><strong>Access:</strong> <a href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets" target="_blank" rel="noopener noreferrer" class="">https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets</a></li>
+<li class=""><strong>Citation:</strong> Burri et al., &quot;The EuRoC MAV Dataset&quot;, IJRR 2016</li>
+</ul>
+<p><strong>KITTI Dataset</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Autonomous driving datasets with lidar, cameras, GPS/IMU</li>
+<li class=""><strong>Content:</strong>
+<ul>
+<li class="">Odometry: 22 stereo sequences with ground truth</li>
+<li class="">3D Object Detection: 15K annotated images</li>
+<li class="">Tracking: 50 sequences with object trajectories</li>
+</ul>
+</li>
+<li class=""><strong>Sensors:</strong> Velodyne lidar, stereo cameras, GPS/IMU</li>
+<li class=""><strong>Use Cases:</strong> Visual odometry, 3D detection, tracking, mapping</li>
+<li class=""><strong>Size:</strong> ~200 GB (varies by task)</li>
+<li class=""><strong>Access:</strong> <a href="http://www.cvlibs.net/datasets/kitti/" target="_blank" rel="noopener noreferrer" class="">http://www.cvlibs.net/datasets/kitti/</a></li>
+<li class=""><strong>Citation:</strong> Geiger et al., &quot;Vision meets Robotics: The KITTI Dataset&quot;, IJRR 2013</li>
+</ul>
+<p><strong>NCLT Dataset (North Campus Long-Term)</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Long-term autonomous navigation dataset</li>
+<li class=""><strong>Content:</strong> 27 sessions over 15 months, same route</li>
+<li class=""><strong>Sensors:</strong> Velodyne lidar, cameras, IMU, GPS</li>
+<li class=""><strong>Unique Feature:</strong> Seasonal and lighting variations</li>
+<li class=""><strong>Use Cases:</strong> Long-term SLAM, place recognition, change detection</li>
+<li class=""><strong>Size:</strong> ~3.6 TB (full dataset)</li>
+<li class=""><strong>Access:</strong> <a href="http://robots.engin.umich.edu/nclt/" target="_blank" rel="noopener noreferrer" class="">http://robots.engin.umich.edu/nclt/</a></li>
+<li class=""><strong>Citation:</strong> Carlevaris-Bianco et al., &quot;University of Michigan NCLT Dataset&quot;, IJRR 2016</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e13-human-motion-datasets">E.1.3 Human Motion Datasets<a href="#e13-human-motion-datasets" class="hash-link" aria-label="Direct link to E.1.3 Human Motion Datasets" title="Direct link to E.1.3 Human Motion Datasets" translate="no">​</a></h3>
+<p><strong>CMU Graphics Lab Motion Capture Database</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Largest free motion capture dataset</li>
+<li class=""><strong>Content:</strong> 2,605 motion sequences, 144 subjects</li>
+<li class=""><strong>Categories:</strong> Walking, running, sports, interaction, dance, martial arts</li>
+<li class=""><strong>Format:</strong> BVH (motion capture), C3D (marker trajectories)</li>
+<li class=""><strong>Use Cases:</strong> Human pose estimation, motion retargeting, animation</li>
+<li class=""><strong>Size:</strong> ~2 GB</li>
+<li class=""><strong>Access:</strong> <a href="http://mocap.cs.cmu.edu/" target="_blank" rel="noopener noreferrer" class="">http://mocap.cs.cmu.edu/</a></li>
+<li class=""><strong>License:</strong> Free for research and commercial use</li>
+</ul>
+<p><strong>Human3.6M</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Large-scale 3D human pose dataset</li>
+<li class=""><strong>Content:</strong> 3.6M video frames, 11 subjects, 17 scenarios</li>
+<li class=""><strong>Sensors:</strong> 4 RGB cameras, motion capture (ground truth)</li>
+<li class=""><strong>Annotations:</strong> 3D joint positions, body part segmentation</li>
+<li class=""><strong>Use Cases:</strong> 3D human pose estimation, action recognition</li>
+<li class=""><strong>Size:</strong> ~100 GB</li>
+<li class=""><strong>Access:</strong> <a href="http://vision.imar.ro/human3.6m/" target="_blank" rel="noopener noreferrer" class="">http://vision.imar.ro/human3.6m/</a> (registration required)</li>
+<li class=""><strong>Citation:</strong> Ionescu et al., &quot;Human3.6M: Large Scale Datasets for 3D Human Sensing&quot;, PAMI 2014</li>
+</ul>
+<p><strong>AMASS (Archive of Motion Capture as Surface Shapes)</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Unified motion capture dataset with SMPL body model</li>
+<li class=""><strong>Content:</strong> 40+ hours, 300+ subjects, 11,000+ motions</li>
+<li class=""><strong>Format:</strong> SMPL parameters (shape and pose)</li>
+<li class=""><strong>Sources:</strong> Consolidated from 15 motion capture datasets</li>
+<li class=""><strong>Use Cases:</strong> Motion synthesis, human modeling, physics simulation</li>
+<li class=""><strong>Size:</strong> ~24 GB</li>
+<li class=""><strong>Access:</strong> <a href="https://amass.is.tue.mpg.de/" target="_blank" rel="noopener noreferrer" class="">https://amass.is.tue.mpg.de/</a></li>
+<li class=""><strong>Citation:</strong> Mahmood et al., &quot;AMASS: Archive of Motion Capture as Surface Shapes&quot;, ICCV 2019</li>
+</ul>
+<p><strong>HumanEva Dataset</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Synchronized video and motion capture for pose estimation</li>
+<li class=""><strong>Content:</strong> 7 calibrated video sequences, 4 subjects</li>
+<li class=""><strong>Actions:</strong> Walking, jogging, gestures, throwing, boxing</li>
+<li class=""><strong>Ground Truth:</strong> Motion capture system</li>
+<li class=""><strong>Use Cases:</strong> 2D/3D pose estimation benchmarking</li>
+<li class=""><strong>Access:</strong> <a href="http://humaneva.is.tue.mpg.de/" target="_blank" rel="noopener noreferrer" class="">http://humaneva.is.tue.mpg.de/</a></li>
+<li class=""><strong>Citation:</strong> Sigal et al., &quot;HumanEva: Synchronized Video and Motion Capture Dataset&quot;, IJCV 2010</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e14-grasping-datasets">E.1.4 Grasping Datasets<a href="#e14-grasping-datasets" class="hash-link" aria-label="Direct link to E.1.4 Grasping Datasets" title="Direct link to E.1.4 Grasping Datasets" translate="no">​</a></h3>
+<p><strong>Dex-Net 1.0, 2.0, 3.0, 4.0</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Synthetic datasets for robot grasping</li>
+<li class=""><strong>Content:</strong>
+<ul>
+<li class="">Dex-Net 1.0: 10M point clouds, 2.5M grasps</li>
+<li class="">Dex-Net 2.0: 6.7M point clouds, parallel jaw grasps</li>
+<li class="">Dex-Net 3.0: Suction cup grasping</li>
+<li class="">Dex-Net 4.0: Ambidextrous grasping (parallel + suction)</li>
+</ul>
+</li>
+<li class=""><strong>Use Cases:</strong> Deep learning for grasp planning</li>
+<li class=""><strong>Access:</strong> <a href="https://berkeleyautomation.github.io/dex-net/" target="_blank" rel="noopener noreferrer" class="">https://berkeleyautomation.github.io/dex-net/</a></li>
+<li class=""><strong>Citation:</strong> Mahler et al., &quot;Dex-Net 2.0: Deep Learning to Plan Robust Grasps&quot;, RSS 2017</li>
+</ul>
+<p><strong>PartNet-Mobility</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Articulated object dataset with motion annotations</li>
+<li class=""><strong>Content:</strong> 2,346 3D objects with moving parts</li>
+<li class=""><strong>Annotations:</strong> Part segmentation, joint parameters, motion ranges</li>
+<li class=""><strong>Categories:</strong> Cabinets, doors, drawers, appliances</li>
+<li class=""><strong>Use Cases:</strong> Articulated object manipulation, affordance learning</li>
+<li class=""><strong>Size:</strong> ~4 GB</li>
+<li class=""><strong>Access:</strong> <a href="https://sapien.ucsd.edu/" target="_blank" rel="noopener noreferrer" class="">https://sapien.ucsd.edu/</a></li>
+<li class=""><strong>Citation:</strong> Xiang et al., &quot;SAPIEN: A SimulAted Part-based Interactive ENvironment&quot;, CVPR 2020</li>
+</ul>
+<p><strong>ContactDB</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Contact patterns during human grasping</li>
+<li class=""><strong>Content:</strong> 50 household objects, 375 grasp demonstrations</li>
+<li class=""><strong>Sensors:</strong> Thermal camera to detect contact areas</li>
+<li class=""><strong>Annotations:</strong> Contact maps, 3D hand poses, forces</li>
+<li class=""><strong>Use Cases:</strong> Human grasp analysis, contact-rich manipulation</li>
+<li class=""><strong>Access:</strong> <a href="https://contactdb.cc.gatech.edu/" target="_blank" rel="noopener noreferrer" class="">https://contactdb.cc.gatech.edu/</a></li>
+<li class=""><strong>Citation:</strong> Brahmbhatt et al., &quot;ContactDB: Analyzing and Predicting Grasp Contact&quot;, CVPR 2019</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="e2-pre-trained-models-and-checkpoints">E.2 Pre-trained Models and Checkpoints<a href="#e2-pre-trained-models-and-checkpoints" class="hash-link" aria-label="Direct link to E.2 Pre-trained Models and Checkpoints" title="Direct link to E.2 Pre-trained Models and Checkpoints" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e21-object-detection-models">E.2.1 Object Detection Models<a href="#e21-object-detection-models" class="hash-link" aria-label="Direct link to E.2.1 Object Detection Models" title="Direct link to E.2.1 Object Detection Models" translate="no">​</a></h3>
+<p><strong>YOLO (You Only Look Once) Series</strong></p>
+<table><thead><tr><th>Model</th><th>Input Size</th><th>mAP</th><th>Speed (FPS)</th><th>Use Case</th><th>Download</th></tr></thead><tbody><tr><td>YOLOv5s</td><td>640×640</td><td>37.4</td><td>140</td><td>Real-time, edge devices</td><td><a href="https://github.com/ultralytics/yolov5" target="_blank" rel="noopener noreferrer" class="">https://github.com/ultralytics/yolov5</a></td></tr><tr><td>YOLOv5m</td><td>640×640</td><td>45.4</td><td>85</td><td>Balanced</td><td><a href="https://github.com/ultralytics/yolov5" target="_blank" rel="noopener noreferrer" class="">https://github.com/ultralytics/yolov5</a></td></tr><tr><td>YOLOv8n</td><td>640×640</td><td>37.3</td><td>200+</td><td>Ultra-fast</td><td><a href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noopener noreferrer" class="">https://github.com/ultralytics/ultralytics</a></td></tr><tr><td>YOLOv8s</td><td>640×640</td><td>44.9</td><td>130</td><td>Real-time</td><td><a href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noopener noreferrer" class="">https://github.com/ultralytics/ultralytics</a></td></tr><tr><td>YOLOv8m</td><td>640×640</td><td>50.2</td><td>80</td><td>High accuracy</td><td><a href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noopener noreferrer" class="">https://github.com/ultralytics/ultralytics</a></td></tr></tbody></table>
+<p><strong>Frameworks:</strong> PyTorch, ONNX, TensorRT
+<strong>Pre-trained on:</strong> COCO (80 classes)</p>
+<p><strong>Detectron2 Model Zoo</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Facebook AI&#x27;s object detection framework</li>
+<li class=""><strong>Models:</strong>
+<ul>
+<li class="">Faster R-CNN (R50-FPN, R101-FPN)</li>
+<li class="">RetinaNet</li>
+<li class="">Mask R-CNN (instance segmentation)</li>
+<li class="">Panoptic FPN</li>
+</ul>
+</li>
+<li class=""><strong>Backbones:</strong> ResNet-50, ResNet-101, ResNeXt</li>
+<li class=""><strong>Pre-trained on:</strong> COCO, LVIS, Cityscapes</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/facebookresearch/detectron2/blob/main/MODEL_ZOO.md" target="_blank" rel="noopener noreferrer" class="">https://github.com/facebookresearch/detectron2/blob/main/MODEL_ZOO.md</a></li>
+<li class=""><strong>Format:</strong> PyTorch checkpoints</li>
+</ul>
+<p><strong>EfficientDet</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Scalable and efficient object detection</li>
+<li class=""><strong>Variants:</strong> D0 (small) to D7 (large)</li>
+<li class=""><strong>Performance:</strong> D7 achieves 52.2 mAP on COCO</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/google/automl/tree/master/efficientdet" target="_blank" rel="noopener noreferrer" class="">https://github.com/google/automl/tree/master/efficientdet</a></li>
+<li class=""><strong>Format:</strong> TensorFlow, PyTorch (via timm)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e22-segmentation-models">E.2.2 Segmentation Models<a href="#e22-segmentation-models" class="hash-link" aria-label="Direct link to E.2.2 Segmentation Models" title="Direct link to E.2.2 Segmentation Models" translate="no">​</a></h3>
+<p><strong>Segment Anything Model (SAM)</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Foundation model for image segmentation</li>
+<li class=""><strong>Architecture:</strong> Vision Transformer (ViT) based</li>
+<li class=""><strong>Capabilities:</strong> Zero-shot segmentation, prompt-based</li>
+<li class=""><strong>Checkpoints:</strong>
+<ul>
+<li class="">ViT-H (huge): 2.4B parameters, best quality</li>
+<li class="">ViT-L (large): 1.2B parameters, balanced</li>
+<li class="">ViT-B (base): 636M parameters, faster</li>
+</ul>
+</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/facebookresearch/segment-anything" target="_blank" rel="noopener noreferrer" class="">https://github.com/facebookresearch/segment-anything</a></li>
+<li class=""><strong>License:</strong> Apache 2.0</li>
+<li class=""><strong>Format:</strong> PyTorch</li>
+</ul>
+<p><strong>DeepLabV3+ / DeepLabV3</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Semantic segmentation with atrous convolution</li>
+<li class=""><strong>Backbones:</strong> ResNet-50, ResNet-101, MobileNetV2</li>
+<li class=""><strong>Pre-trained on:</strong> COCO, Pascal VOC, Cityscapes</li>
+<li class=""><strong>Access:</strong> TensorFlow Model Garden, PyTorch Hub</li>
+<li class=""><strong>Use Cases:</strong> Scene understanding, outdoor navigation</li>
+</ul>
+<p><strong>Mask R-CNN</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Instance segmentation (detection + masks)</li>
+<li class=""><strong>Pre-trained models:</strong> COCO 80 classes</li>
+<li class=""><strong>Backbones:</strong> ResNet-50-FPN, ResNet-101-FPN</li>
+<li class=""><strong>Access:</strong> Detectron2, TorchVision model zoo</li>
+<li class=""><strong>mAP:</strong> ~37-39 (depending on backbone)</li>
+</ul>
+<p><strong>SegFormer</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Transformer-based semantic segmentation</li>
+<li class=""><strong>Variants:</strong> B0 (small) to B5 (large)</li>
+<li class=""><strong>Performance:</strong> 84.0 mIoU on ADE20K (B5)</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/NVlabs/SegFormer" target="_blank" rel="noopener noreferrer" class="">https://github.com/NVlabs/SegFormer</a></li>
+<li class=""><strong>Format:</strong> PyTorch</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e23-pose-estimation-models">E.2.3 Pose Estimation Models<a href="#e23-pose-estimation-models" class="hash-link" aria-label="Direct link to E.2.3 Pose Estimation Models" title="Direct link to E.2.3 Pose Estimation Models" translate="no">​</a></h3>
+<p><strong>OpenPose</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Real-time multi-person 2D pose estimation</li>
+<li class=""><strong>Keypoints:</strong>
+<ul>
+<li class="">Body: 18 or 25 keypoints</li>
+<li class="">Hand: 21 keypoints per hand</li>
+<li class="">Face: 70 keypoints</li>
+</ul>
+</li>
+<li class=""><strong>Framework:</strong> Caffe, OpenCV DNN</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose" target="_blank" rel="noopener noreferrer" class="">https://github.com/CMU-Perceptual-Computing-Lab/openpose</a></li>
+<li class=""><strong>Speed:</strong> ~22 FPS (single person, GPU)</li>
+</ul>
+<p><strong>MediaPipe Pose</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Lightweight pose estimation for mobile/edge</li>
+<li class=""><strong>Keypoints:</strong> 33 body landmarks (including face and hands)</li>
+<li class=""><strong>Platform:</strong> Mobile, Web, Desktop</li>
+<li class=""><strong>Performance:</strong> Real-time on CPU</li>
+<li class=""><strong>Access:</strong> <a href="https://google.github.io/mediapipe/solutions/pose.html" target="_blank" rel="noopener noreferrer" class="">https://google.github.io/mediapipe/solutions/pose.html</a></li>
+<li class=""><strong>License:</strong> Apache 2.0</li>
+<li class=""><strong>Format:</strong> TFLite</li>
+</ul>
+<p><strong>HRNet (High-Resolution Net)</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> State-of-art human pose estimation</li>
+<li class=""><strong>Variants:</strong> HRNet-W32, HRNet-W48</li>
+<li class=""><strong>Performance:</strong> 74.9 AP on COCO test-dev (W48)</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/leoxiaobin/deep-high-resolution-net.pytorch" target="_blank" rel="noopener noreferrer" class="">https://github.com/leoxiaobin/deep-high-resolution-net.pytorch</a></li>
+<li class=""><strong>Pre-trained on:</strong> COCO, MPII</li>
+<li class=""><strong>Format:</strong> PyTorch</li>
+</ul>
+<p><strong>6D Object Pose Models</strong></p>
+<table><thead><tr><th>Model</th><th>Description</th><th>Input</th><th>Output</th><th>Access</th></tr></thead><tbody><tr><td>PoseCNN</td><td>CNN-based 6D pose</td><td>RGB-D</td><td>6D pose + confidence</td><td><a href="https://rse-lab.cs.washington.edu/projects/posecnn/" target="_blank" rel="noopener noreferrer" class="">https://rse-lab.cs.washington.edu/projects/posecnn/</a></td></tr><tr><td>DenseFusion</td><td>RGB-D fusion for pose</td><td>RGB-D</td><td>6D pose</td><td><a href="https://github.com/j96w/DenseFusion" target="_blank" rel="noopener noreferrer" class="">https://github.com/j96w/DenseFusion</a></td></tr><tr><td>PVNet</td><td>Pixel-wise voting</td><td>RGB</td><td>6D pose</td><td><a href="https://github.com/zju3dv/pvnet" target="_blank" rel="noopener noreferrer" class="">https://github.com/zju3dv/pvnet</a></td></tr><tr><td>FoundationPose</td><td>Foundation model</td><td>RGB-D</td><td>6D pose (novel objects)</td><td><a href="https://github.com/NVlabs/FoundationPose" target="_blank" rel="noopener noreferrer" class="">https://github.com/NVlabs/FoundationPose</a></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e24-speech-recognition-models">E.2.4 Speech Recognition Models<a href="#e24-speech-recognition-models" class="hash-link" aria-label="Direct link to E.2.4 Speech Recognition Models" title="Direct link to E.2.4 Speech Recognition Models" translate="no">​</a></h3>
+<p><strong>Whisper (OpenAI)</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Robust multilingual speech recognition</li>
+<li class=""><strong>Variants:</strong>
+<ul>
+<li class="">Tiny: 39M params, 32x real-time (CPU)</li>
+<li class="">Base: 74M params, 16x real-time</li>
+<li class="">Small: 244M params, 6x real-time</li>
+<li class="">Medium: 769M params, 2x real-time</li>
+<li class="">Large: 1550M params, 1x real-time</li>
+</ul>
+</li>
+<li class=""><strong>Languages:</strong> 99 languages</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/openai/whisper" target="_blank" rel="noopener noreferrer" class="">https://github.com/openai/whisper</a></li>
+<li class=""><strong>Format:</strong> PyTorch</li>
+<li class=""><strong>Use Case:</strong> Robot voice commands, transcription</li>
+</ul>
+<p><strong>Wav2Vec 2.0</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Self-supervised speech representation learning</li>
+<li class=""><strong>Pre-trained models:</strong> Base (95M), Large (317M)</li>
+<li class=""><strong>Fine-tuned for:</strong> English ASR, multilingual ASR</li>
+<li class=""><strong>Access:</strong> <a href="https://huggingface.co/models?search=wav2vec2" target="_blank" rel="noopener noreferrer" class="">https://huggingface.co/models?search=wav2vec2</a></li>
+<li class=""><strong>Framework:</strong> Transformers (Hugging Face)</li>
+<li class=""><strong>Use Case:</strong> Custom wake word detection, ASR fine-tuning</li>
+</ul>
+<p><strong>Vosk</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Offline speech recognition toolkit</li>
+<li class=""><strong>Models:</strong> 20+ languages, small to large variants</li>
+<li class=""><strong>Size:</strong> 50 MB (small) to 1.8 GB (large)</li>
+<li class=""><strong>Platform:</strong> Cross-platform (Linux, Windows, macOS, Android, iOS)</li>
+<li class=""><strong>Access:</strong> <a href="https://alphacephei.com/vosk/models" target="_blank" rel="noopener noreferrer" class="">https://alphacephei.com/vosk/models</a></li>
+<li class=""><strong>License:</strong> Apache 2.0</li>
+<li class=""><strong>Use Case:</strong> Embedded systems, privacy-focused applications</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="e3-3d-model-libraries">E.3 3D Model Libraries<a href="#e3-3d-model-libraries" class="hash-link" aria-label="Direct link to E.3 3D Model Libraries" title="Direct link to E.3 3D Model Libraries" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e31-robot-urdf-repositories">E.3.1 Robot URDF Repositories<a href="#e31-robot-urdf-repositories" class="hash-link" aria-label="Direct link to E.3.1 Robot URDF Repositories" title="Direct link to E.3.1 Robot URDF Repositories" translate="no">​</a></h3>
+<p><strong>ROS Industrial Robot Support</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> URDF models for industrial manipulators</li>
+<li class=""><strong>Robots:</strong> ABB, FANUC, Universal Robots, KUKA, Motoman</li>
+<li class=""><strong>Content:</strong> URDF/XACRO files, meshes, MoveIt configs</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/ros-industrial" target="_blank" rel="noopener noreferrer" class="">https://github.com/ros-industrial</a></li>
+<li class=""><strong>Format:</strong> URDF, DAE/STL meshes</li>
+<li class=""><strong>License:</strong> Varies (mostly BSD/Apache)</li>
+</ul>
+<p><strong>Example repositories:</strong></p>
+<ul>
+<li class="">Universal Robots: <a href="https://github.com/ros-industrial/universal_robot" target="_blank" rel="noopener noreferrer" class="">https://github.com/ros-industrial/universal_robot</a></li>
+<li class="">ABB: <a href="https://github.com/ros-industrial/abb" target="_blank" rel="noopener noreferrer" class="">https://github.com/ros-industrial/abb</a></li>
+<li class="">FANUC: <a href="https://github.com/ros-industrial/fanuc" target="_blank" rel="noopener noreferrer" class="">https://github.com/ros-industrial/fanuc</a></li>
+</ul>
+<p><strong>TIAGo Robot (PAL Robotics)</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Mobile manipulation platform URDF</li>
+<li class=""><strong>Variants:</strong> TIAGo Base, TIAGo with arm, TIAGo++</li>
+<li class=""><strong>Content:</strong> Full URDF, Gazebo simulation</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/pal-robotics/tiago_robot" target="_blank" rel="noopener noreferrer" class="">https://github.com/pal-robotics/tiago_robot</a></li>
+<li class=""><strong>Use Case:</strong> Research on mobile manipulation</li>
+</ul>
+<p><strong>Clearpath Robotics</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Mobile robot platforms</li>
+<li class=""><strong>Robots:</strong> Husky, Jackal, Ridgeback, Dingo</li>
+<li class=""><strong>Content:</strong> URDF, Gazebo worlds, navigation configs</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/clearpathrobotics" target="_blank" rel="noopener noreferrer" class="">https://github.com/clearpathrobotics</a></li>
+<li class=""><strong>Format:</strong> URDF/XACRO, STL/DAE meshes</li>
+</ul>
+<p><strong>Unitree Robotics</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Quadruped and humanoid robots</li>
+<li class=""><strong>Robots:</strong> Go1, Go2, A1, Aliengo, G1 Humanoid</li>
+<li class=""><strong>Content:</strong> URDF, simulation setup</li>
+<li class=""><strong>Access:</strong>
+<ul>
+<li class=""><a href="https://github.com/unitreerobotics/unitree_ros" target="_blank" rel="noopener noreferrer" class="">https://github.com/unitreerobotics/unitree_ros</a></li>
+<li class=""><a href="https://github.com/unitreerobotics/unitree_mujoco" target="_blank" rel="noopener noreferrer" class="">https://github.com/unitreerobotics/unitree_mujoco</a></li>
+</ul>
+</li>
+<li class=""><strong>Format:</strong> URDF, MuJoCo XML</li>
+</ul>
+<p><strong>Boston Dynamics Spot (Community)</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Community-created Spot URDF</li>
+<li class=""><strong>Note:</strong> Unofficial, for simulation only</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/chvmp/spot_ros" target="_blank" rel="noopener noreferrer" class="">https://github.com/chvmp/spot_ros</a></li>
+<li class=""><strong>Format:</strong> URDF</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e32-environment-models">E.3.2 Environment Models<a href="#e32-environment-models" class="hash-link" aria-label="Direct link to E.3.2 Environment Models" title="Direct link to E.3.2 Environment Models" translate="no">​</a></h3>
+<p><strong>Gazebo Model Database</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Official Gazebo model repository</li>
+<li class=""><strong>Content:</strong> 100+ models (furniture, structures, robots)</li>
+<li class=""><strong>Categories:</strong> Construction, ground, people, robots, shapes</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/osrf/gazebo_models" target="_blank" rel="noopener noreferrer" class="">https://github.com/osrf/gazebo_models</a></li>
+<li class=""><strong>Browser:</strong> <a href="https://app.gazebosim.org/" target="_blank" rel="noopener noreferrer" class="">https://app.gazebosim.org/</a></li>
+<li class=""><strong>Format:</strong> SDF, COLLADA meshes</li>
+</ul>
+<p><strong>AWS RoboMaker Small House World</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Residential environment for robot simulation</li>
+<li class=""><strong>Content:</strong> Furnished house model, Gazebo world</li>
+<li class=""><strong>Size:</strong> ~200 MB</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/aws-robotics/aws-robomaker-small-house-world" target="_blank" rel="noopener noreferrer" class="">https://github.com/aws-robotics/aws-robomaker-small-house-world</a></li>
+<li class=""><strong>License:</strong> MIT</li>
+<li class=""><strong>Use Case:</strong> Home service robot testing</li>
+</ul>
+<p><strong>Unity Robotics Hub Environments</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Photorealistic environments for Unity</li>
+<li class=""><strong>Content:</strong> Warehouse, factory, outdoor scenes</li>
+<li class=""><strong>Access:</strong> <a href="https://github.com/Unity-Technologies/Robotics-Nav2-SLAM-Example" target="_blank" rel="noopener noreferrer" class="">https://github.com/Unity-Technologies/Robotics-Nav2-SLAM-Example</a></li>
+<li class=""><strong>Format:</strong> Unity scenes</li>
+<li class=""><strong>Use Case:</strong> Synthetic data generation, visualization</li>
+</ul>
+<p><strong>NVIDIA Isaac Sim Assets</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> High-quality 3D assets for Isaac Sim</li>
+<li class=""><strong>Content:</strong> Warehouses, factories, retail, robots</li>
+<li class=""><strong>Access:</strong> Through Omniverse Nucleus</li>
+<li class=""><strong>Format:</strong> USD (Universal Scene Description)</li>
+<li class=""><strong>License:</strong> NVIDIA Omniverse license</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e33-object-meshes-and-cad-files">E.3.3 Object Meshes and CAD Files<a href="#e33-object-meshes-and-cad-files" class="hash-link" aria-label="Direct link to E.3.3 Object Meshes and CAD Files" title="Direct link to E.3.3 Object Meshes and CAD Files" translate="no">​</a></h3>
+<p><strong>ShapeNet</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Large-scale 3D shape repository</li>
+<li class=""><strong>Content:</strong> 51,300 models, 55 categories</li>
+<li class=""><strong>Subset:</strong> ShapeNetCore (focus on common objects)</li>
+<li class=""><strong>Format:</strong> OBJ, MTL (materials)</li>
+<li class=""><strong>Access:</strong> <a href="https://shapenet.org/" target="_blank" rel="noopener noreferrer" class="">https://shapenet.org/</a> (registration required)</li>
+<li class=""><strong>License:</strong> Varies by model</li>
+<li class=""><strong>Use Case:</strong> Synthetic data generation, manipulation research</li>
+</ul>
+<p><strong>ModelNet</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> CAD model dataset for object recognition</li>
+<li class=""><strong>Content:</strong>
+<ul>
+<li class="">ModelNet10: 4,899 models, 10 categories</li>
+<li class="">ModelNet40: 12,311 models, 40 categories</li>
+</ul>
+</li>
+<li class=""><strong>Format:</strong> OFF (Object File Format)</li>
+<li class=""><strong>Use Case:</strong> 3D deep learning, point cloud processing</li>
+<li class=""><strong>Access:</strong> <a href="https://modelnet.cs.princeton.edu/" target="_blank" rel="noopener noreferrer" class="">https://modelnet.cs.princeton.edu/</a></li>
+</ul>
+<p><strong>3D Warehouse (SketchUp)</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Community 3D model repository</li>
+<li class=""><strong>Content:</strong> Millions of user-created models</li>
+<li class=""><strong>Categories:</strong> Architecture, furniture, machinery</li>
+<li class=""><strong>Format:</strong> SKP (SketchUp), COLLADA export</li>
+<li class=""><strong>Access:</strong> <a href="https://3dwarehouse.sketchup.com/" target="_blank" rel="noopener noreferrer" class="">https://3dwarehouse.sketchup.com/</a></li>
+<li class=""><strong>License:</strong> Varies (check individual models)</li>
+<li class=""><strong>Use Case:</strong> Simulation environments</li>
+</ul>
+<p><strong>Thingiverse</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> 3D printable model repository</li>
+<li class=""><strong>Content:</strong> 2M+ designs (mechanical parts, tools, objects)</li>
+<li class=""><strong>Format:</strong> STL, OBJ, SCAD</li>
+<li class=""><strong>Access:</strong> <a href="https://www.thingiverse.com/" target="_blank" rel="noopener noreferrer" class="">https://www.thingiverse.com/</a></li>
+<li class=""><strong>License:</strong> Creative Commons (varies)</li>
+<li class=""><strong>Use Case:</strong> Robot parts, grippers, custom tools</li>
+</ul>
+<p><strong>GrabCAD</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Professional CAD model library</li>
+<li class=""><strong>Content:</strong> 4.5M+ CAD models</li>
+<li class=""><strong>Format:</strong> STEP, STL, SOLIDWORKS, Inventor</li>
+<li class=""><strong>Access:</strong> <a href="https://grabcad.com/library" target="_blank" rel="noopener noreferrer" class="">https://grabcad.com/library</a></li>
+<li class=""><strong>Quality:</strong> Engineering-grade models</li>
+<li class=""><strong>Use Case:</strong> Robot design, gripper design</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="e4-community-resources-and-forums">E.4 Community Resources and Forums<a href="#e4-community-resources-and-forums" class="hash-link" aria-label="Direct link to E.4 Community Resources and Forums" title="Direct link to E.4 Community Resources and Forums" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e41-ros-discourse">E.4.1 ROS Discourse<a href="#e41-ros-discourse" class="hash-link" aria-label="Direct link to E.4.1 ROS Discourse" title="Direct link to E.4.1 ROS Discourse" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>URL:</strong> <a href="https://discourse.ros.org/" target="_blank" rel="noopener noreferrer" class="">https://discourse.ros.org/</a></li>
+<li class=""><strong>Description:</strong> Official ROS community forum</li>
+<li class=""><strong>Categories:</strong>
+<ul>
+<li class="">General: ROS 2 discussions</li>
+<li class="">Next Generation ROS: ROS 2 specific</li>
+<li class="">Using ROS: User questions and tutorials</li>
+<li class="">ROS Projects: Project showcases</li>
+<li class="">Jobs: Career opportunities</li>
+</ul>
+</li>
+<li class=""><strong>Activity:</strong> Very active, responses within hours</li>
+<li class=""><strong>Moderation:</strong> Official ROS team and community moderators</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li class="">Search before posting (many common questions answered)</li>
+<li class="">Provide system info (ROS version, OS, hardware)</li>
+<li class="">Include error messages and logs</li>
+<li class="">Tag questions appropriately</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e42-nvidia-isaac-forums">E.4.2 NVIDIA Isaac Forums<a href="#e42-nvidia-isaac-forums" class="hash-link" aria-label="Direct link to E.4.2 NVIDIA Isaac Forums" title="Direct link to E.4.2 NVIDIA Isaac Forums" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>URL:</strong> <a href="https://forums.developer.nvidia.com/c/agx-autonomous-machines/isaac/" target="_blank" rel="noopener noreferrer" class="">https://forums.developer.nvidia.com/c/agx-autonomous-machines/isaac/</a></li>
+<li class=""><strong>Description:</strong> Official NVIDIA Isaac support forum</li>
+<li class=""><strong>Subcategories:</strong>
+<ul>
+<li class="">Isaac Sim</li>
+<li class="">Isaac ROS</li>
+<li class="">Isaac SDK (legacy)</li>
+</ul>
+</li>
+<li class=""><strong>Support:</strong> NVIDIA engineers respond regularly</li>
+<li class=""><strong>Content:</strong> Technical Q&amp;A, bug reports, feature requests</li>
+</ul>
+<p><strong>Related:</strong></p>
+<ul>
+<li class="">Omniverse Forums: <a href="https://forums.developer.nvidia.com/c/omniverse/" target="_blank" rel="noopener noreferrer" class="">https://forums.developer.nvidia.com/c/omniverse/</a></li>
+<li class="">Jetson Forums: <a href="https://forums.developer.nvidia.com/c/agx-autonomous-machines/jetson-embedded-systems/" target="_blank" rel="noopener noreferrer" class="">https://forums.developer.nvidia.com/c/agx-autonomous-machines/jetson-embedded-systems/</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e43-github-repositories">E.4.3 GitHub Repositories<a href="#e43-github-repositories" class="hash-link" aria-label="Direct link to E.4.3 GitHub Repositories" title="Direct link to E.4.3 GitHub Repositories" translate="no">​</a></h3>
+<p><strong>Awesome Robotics</strong></p>
+<ul>
+<li class=""><strong>URL:</strong> <a href="https://github.com/kiloreux/awesome-robotics" target="_blank" rel="noopener noreferrer" class="">https://github.com/kiloreux/awesome-robotics</a></li>
+<li class=""><strong>Description:</strong> Curated list of robotics resources</li>
+<li class=""><strong>Content:</strong> Libraries, courses, papers, competitions</li>
+<li class=""><strong>Topics:</strong> ROS, simulators, vision, planning, control</li>
+</ul>
+<p><strong>Awesome ROS 2</strong></p>
+<ul>
+<li class=""><strong>URL:</strong> <a href="https://github.com/fkromer/awesome-ros2" target="_blank" rel="noopener noreferrer" class="">https://github.com/fkromer/awesome-ros2</a></li>
+<li class=""><strong>Description:</strong> ROS 2 specific resources</li>
+<li class=""><strong>Content:</strong> Packages, tutorials, presentations, books</li>
+<li class=""><strong>Updates:</strong> Community-maintained, regularly updated</li>
+</ul>
+<p><strong>Awesome Robot Descriptions</strong></p>
+<ul>
+<li class=""><strong>URL:</strong> <a href="https://github.com/robot-descriptions/awesome-robot-descriptions" target="_blank" rel="noopener noreferrer" class="">https://github.com/robot-descriptions/awesome-robot-descriptions</a></li>
+<li class=""><strong>Description:</strong> Collection of robot URDF/MJCF models</li>
+<li class=""><strong>Content:</strong> 200+ robot descriptions</li>
+<li class=""><strong>Format:</strong> URDF, MJCF (MuJoCo)</li>
+</ul>
+<p><strong>Open Robotics GitHub</strong></p>
+<ul>
+<li class=""><strong>URL:</strong> <a href="https://github.com/osrf" target="_blank" rel="noopener noreferrer" class="">https://github.com/osrf</a> (Open Robotics), <a href="https://github.com/ros2" target="_blank" rel="noopener noreferrer" class="">https://github.com/ros2</a></li>
+<li class=""><strong>Content:</strong> Official ROS/Gazebo repositories</li>
+<li class=""><strong>Examples:</strong>
+<ul>
+<li class="">ros2/ros2: ROS 2 meta-repository</li>
+<li class="">gazebosim: Gazebo simulation</li>
+<li class="">osrf/urdf_tutorial: URDF learning resources</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e44-discord-communities">E.4.4 Discord Communities<a href="#e44-discord-communities" class="hash-link" aria-label="Direct link to E.4.4 Discord Communities" title="Direct link to E.4.4 Discord Communities" translate="no">​</a></h3>
+<p><strong>ROS Discord</strong></p>
+<ul>
+<li class=""><strong>Invite:</strong> <a href="https://discord.gg/ros" target="_blank" rel="noopener noreferrer" class="">https://discord.gg/ros</a> (check ROS Discourse for current link)</li>
+<li class=""><strong>Members:</strong> 5,000+</li>
+<li class=""><strong>Channels:</strong>
+<ul>
+<li class="">#ros2-help: Technical support</li>
+<li class="">#showcase: Project demonstrations</li>
+<li class="">#nav2: Navigation stack</li>
+<li class="">#moveit: Motion planning</li>
+</ul>
+</li>
+<li class=""><strong>Activity:</strong> Very active, real-time help</li>
+</ul>
+<p><strong>Robotics &amp; AI Discord</strong></p>
+<ul>
+<li class=""><strong>Description:</strong> Community for robotics enthusiasts</li>
+<li class=""><strong>Topics:</strong> Hobbyist and professional robotics</li>
+<li class=""><strong>Channels:</strong> Hardware, software, projects, careers</li>
+</ul>
+<p><strong>Isaac Sim Community Discord</strong></p>
+<ul>
+<li class=""><strong>Access:</strong> Through NVIDIA Developer forums</li>
+<li class=""><strong>Content:</strong> Isaac Sim users, tips, troubleshooting</li>
+<li class=""><strong>Activity:</strong> Growing community</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e45-research-conferences">E.4.5 Research Conferences<a href="#e45-research-conferences" class="hash-link" aria-label="Direct link to E.4.5 Research Conferences" title="Direct link to E.4.5 Research Conferences" translate="no">​</a></h3>
+<p><strong>Major Robotics Conferences:</strong></p>
+<table><thead><tr><th>Conference</th><th>Acronym</th><th>Focus</th><th>Deadline (typical)</th><th>Event (typical)</th></tr></thead><tbody><tr><td>International Conference on Robotics and Automation</td><td>ICRA</td><td>Broad robotics</td><td>October</td><td>May-June</td></tr><tr><td>IEEE/RSJ International Conference on Intelligent Robots and Systems</td><td>IROS</td><td>Intelligent systems</td><td>March</td><td>September-October</td></tr><tr><td>Robotics: Science and Systems</td><td>RSS</td><td>Robotics theory</td><td>January</td><td>July</td></tr><tr><td>Conference on Robot Learning</td><td>CoRL</td><td>Learning for robots</td><td>June</td><td>November</td></tr><tr><td>Humanoids</td><td>Humanoids</td><td>Humanoid robotics</td><td>June</td><td>November</td></tr><tr><td>International Conference on Computer Vision</td><td>ICCV</td><td>Vision (biennial)</td><td>March</td><td>October</td></tr><tr><td>Computer Vision and Pattern Recognition</td><td>CVPR</td><td>Vision</td><td>November</td><td>June</td></tr></tbody></table>
+<p><strong>Conference Resources:</strong></p>
+<ul>
+<li class=""><strong>Paper archives:</strong> IEEE Xplore, arXiv.org</li>
+<li class=""><strong>Video presentations:</strong> YouTube channels (e.g., ICRA, RSS)</li>
+<li class=""><strong>Workshop papers:</strong> Often on conference websites</li>
+</ul>
+<p><strong>Following Conferences:</strong></p>
+<ul>
+<li class="">Subscribe to mailing lists for CFPs (Call for Papers)</li>
+<li class="">Follow on Twitter/X for announcements</li>
+<li class="">Attend virtually (many offer online participation)</li>
+<li class="">Review open-access papers on arXiv</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="e5-recommended-reading-and-papers">E.5 Recommended Reading and Papers<a href="#e5-recommended-reading-and-papers" class="hash-link" aria-label="Direct link to E.5 Recommended Reading and Papers" title="Direct link to E.5 Recommended Reading and Papers" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e51-classic-robotics-papers">E.5.1 Classic Robotics Papers<a href="#e51-classic-robotics-papers" class="hash-link" aria-label="Direct link to E.5.1 Classic Robotics Papers" title="Direct link to E.5.1 Classic Robotics Papers" translate="no">​</a></h3>
+<p><strong>Kinematics and Control:</strong></p>
+<ol>
+<li class="">
+<p><strong>&quot;A Mathematical Introduction to Robotic Manipulation&quot;</strong></p>
+<ul>
+<li class="">Authors: Murray, Li, Sastry</li>
+<li class="">Year: 1994</li>
+<li class="">Topics: Kinematics, dynamics, control</li>
+<li class="">Access: <a href="http://www.cds.caltech.edu/~murray/mlswiki/" target="_blank" rel="noopener noreferrer" class="">http://www.cds.caltech.edu/~murray/mlswiki/</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Robot Dynamics and Control&quot;</strong></p>
+<ul>
+<li class="">Authors: Spong, Hutchinson, Vidyasagar</li>
+<li class="">Year: 1989 (2nd ed. 2006)</li>
+<li class="">Topics: Dynamics, trajectory planning, control</li>
+<li class="">Classic textbook reference</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Probabilistic Robotics&quot;</strong></p>
+<ul>
+<li class="">Authors: Thrun, Burgard, Fox</li>
+<li class="">Year: 2005</li>
+<li class="">Topics: Localization, SLAM, Kalman/particle filters</li>
+<li class="">Essential for mobile robotics</li>
+<li class="">Free online: <a href="https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf" target="_blank" rel="noopener noreferrer" class="">https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf</a></li>
+</ul>
+</li>
+</ol>
+<p><strong>Motion Planning:</strong></p>
+<ol start="4">
+<li class="">
+<p><strong>&quot;A Randomized Approach to Robot Path Planning&quot;</strong></p>
+<ul>
+<li class="">Authors: Kavraki et al.</li>
+<li class="">Year: 1996</li>
+<li class="">Topic: Probabilistic Roadmaps (PRM)</li>
+<li class="">Citation: Foundation of sampling-based planning</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Randomized Kinodynamic Planning&quot;</strong></p>
+<ul>
+<li class="">Authors: LaValle, Kuffner</li>
+<li class="">Year: 2001</li>
+<li class="">Topic: Rapidly-exploring Random Trees (RRT)</li>
+<li class="">Impact: Enabled planning for high-DOF robots</li>
+</ul>
+</li>
+</ol>
+<p><strong>SLAM:</strong></p>
+<ol start="6">
+<li class="">
+<p><strong>&quot;Real-Time Appearance-Based Mapping&quot;</strong></p>
+<ul>
+<li class="">Authors: Se, Lowe, Little</li>
+<li class="">Year: 2002</li>
+<li class="">Topic: Visual SLAM with SIFT features</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;ORB-SLAM: A Versatile and Accurate Monocular SLAM System&quot;</strong></p>
+<ul>
+<li class="">Authors: Mur-Artal, Montiel, Tardos</li>
+<li class="">Year: 2015</li>
+<li class="">Impact: Widely-used visual SLAM</li>
+<li class="">Code: <a href="https://github.com/raulmur/ORB_SLAM2" target="_blank" rel="noopener noreferrer" class="">https://github.com/raulmur/ORB_SLAM2</a></li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e52-recent-physical-ai-papers">E.5.2 Recent Physical AI Papers<a href="#e52-recent-physical-ai-papers" class="hash-link" aria-label="Direct link to E.5.2 Recent Physical AI Papers" title="Direct link to E.5.2 Recent Physical AI Papers" translate="no">​</a></h3>
+<p><strong>Simulation and Sim-to-Real:</strong></p>
+<ol>
+<li class="">
+<p><strong>&quot;Sim-to-Real Transfer of Robotic Control with Dynamics Randomization&quot;</strong></p>
+<ul>
+<li class="">Authors: Peng et al.</li>
+<li class="">Year: 2018, ICRA</li>
+<li class="">Topic: Domain randomization for transfer</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/1710.06537" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/1710.06537</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Learning Dexterous In-Hand Manipulation&quot;</strong></p>
+<ul>
+<li class="">Authors: OpenAI et al.</li>
+<li class="">Year: 2019, IJRR</li>
+<li class="">Topic: Dexterous manipulation with domain randomization</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/1808.00177" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/1808.00177</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Isaac Gym: High Performance GPU-Based Physics Simulation&quot;</strong></p>
+<ul>
+<li class="">Authors: Makoviychuk et al.</li>
+<li class="">Year: 2021, NeurIPS</li>
+<li class="">Topic: Massively parallel RL training</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/2108.10470" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/2108.10470</a></li>
+</ul>
+</li>
+</ol>
+<p><strong>Learning-Based Manipulation:</strong></p>
+<ol start="4">
+<li class="">
+<p><strong>&quot;Deep Imitation Learning for Complex Manipulation Tasks from Virtual Reality Teleoperation&quot;</strong></p>
+<ul>
+<li class="">Authors: Zhang et al.</li>
+<li class="">Year: 2018, ICRA</li>
+<li class="">Topic: VR teleoperation for data collection</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/1710.04615" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/1710.04615</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Learning Synergies between Pushing and Grasping with Self-Supervised Deep Reinforcement Learning&quot;</strong></p>
+<ul>
+<li class="">Authors: Zeng et al.</li>
+<li class="">Year: 2018, IROS</li>
+<li class="">Topic: Push-grasp learning</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/1803.09956" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/1803.09956</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Transporter Networks: Rearranging the Visual World for Robotic Manipulation&quot;</strong></p>
+<ul>
+<li class="">Authors: Zeng et al.</li>
+<li class="">Year: 2021, CoRL</li>
+<li class="">Topic: Spatial action representations</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/2010.14406" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/2010.14406</a></li>
+</ul>
+</li>
+</ol>
+<p><strong>Humanoid Locomotion:</strong></p>
+<ol start="7">
+<li class="">
+<p><strong>&quot;Learning Bipedal Walking On Planned Footsteps For Humanoid Robots&quot;</strong></p>
+<ul>
+<li class="">Authors: Peng et al.</li>
+<li class="">Year: 2020, CoRL</li>
+<li class="">Topic: Deep RL for humanoid walking</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/2011.10928" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/2011.10928</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Learning Locomotion Skills Using DeepMimic&quot;</strong></p>
+<ul>
+<li class="">Authors: Peng et al.</li>
+<li class="">Year: 2018, SIGGRAPH</li>
+<li class="">Topic: Motion imitation for locomotion</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/1804.02717" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/1804.02717</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Whole-Body Humanoid Robot Locomotion with Human Reference&quot;</strong></p>
+<ul>
+<li class="">Authors: Radosavovic et al.</li>
+<li class="">Year: 2024, arXiv</li>
+<li class="">Topic: Human motion retargeting to humanoid</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/2402.04436" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/2402.04436</a></li>
+</ul>
+</li>
+</ol>
+<p><strong>Vision-Language-Action Models:</strong></p>
+<ol start="10">
+<li class="">
+<p><strong>&quot;RT-1: Robotics Transformer for Real-World Control at Scale&quot;</strong></p>
+<ul>
+<li class="">Authors: Brohan et al. (Google)</li>
+<li class="">Year: 2022, RSS</li>
+<li class="">Topic: Transformer for robot control</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/2212.06817" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/2212.06817</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control&quot;</strong></p>
+<ul>
+<li class="">Authors: Brohan et al. (Google DeepMind)</li>
+<li class="">Year: 2023, CoRL</li>
+<li class="">Topic: VLA models for robotics</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/2307.15818" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/2307.15818</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Open X-Embodiment: Robotic Learning Datasets and RT-X Models&quot;</strong></p>
+<ul>
+<li class="">Authors: Open X-Embodiment Collaboration</li>
+<li class="">Year: 2023, arXiv</li>
+<li class="">Topic: Large-scale multi-robot dataset</li>
+<li class="">arXiv: <a href="https://arxiv.org/abs/2310.08864" target="_blank" rel="noopener noreferrer" class="">https://arxiv.org/abs/2310.08864</a></li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e53-textbooks-and-tutorials">E.5.3 Textbooks and Tutorials<a href="#e53-textbooks-and-tutorials" class="hash-link" aria-label="Direct link to E.5.3 Textbooks and Tutorials" title="Direct link to E.5.3 Textbooks and Tutorials" translate="no">​</a></h3>
+<p><strong>Foundational Textbooks:</strong></p>
+<ol>
+<li class="">
+<p><strong>&quot;Introduction to Robotics: Mechanics and Control&quot; (4th Edition)</strong></p>
+<ul>
+<li class="">Author: John J. Craig</li>
+<li class="">Publisher: Pearson, 2017</li>
+<li class="">Topics: Kinematics, dynamics, trajectory planning, control</li>
+<li class="">Level: Undergraduate</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Robotics, Vision and Control: Fundamental Algorithms in MATLAB&quot; (3rd Edition)</strong></p>
+<ul>
+<li class="">Author: Peter Corke</li>
+<li class="">Publisher: Springer, 2023</li>
+<li class="">Topics: Complete robotics toolkit with MATLAB code</li>
+<li class="">Companion: Robotics Toolbox for MATLAB/Python</li>
+<li class="">Access: <a href="https://petercorke.com/rvc/" target="_blank" rel="noopener noreferrer" class="">https://petercorke.com/rvc/</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Modern Robotics: Mechanics, Planning, and Control&quot;</strong></p>
+<ul>
+<li class="">Authors: Kevin Lynch, Frank Park</li>
+<li class="">Publisher: Cambridge University Press, 2017</li>
+<li class="">Topics: Screw theory, kinematics, dynamics</li>
+<li class="">Free: <a href="http://modernrobotics.org" target="_blank" rel="noopener noreferrer" class="">http://modernrobotics.org</a> (videos and book)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Planning Algorithms&quot;</strong></p>
+<ul>
+<li class="">Author: Steven LaValle</li>
+<li class="">Publisher: Cambridge University Press, 2006</li>
+<li class="">Topics: Comprehensive motion planning</li>
+<li class="">Free: <a href="http://planning.cs.uiuc.edu/" target="_blank" rel="noopener noreferrer" class="">http://planning.cs.uiuc.edu/</a></li>
+</ul>
+</li>
+</ol>
+<p><strong>ROS and Practical Guides:</strong></p>
+<ol start="5">
+<li class="">
+<p><strong>&quot;Programming Robots with ROS: A Practical Introduction&quot;</strong></p>
+<ul>
+<li class="">Authors: Quigley, Gerkey, Smart</li>
+<li class="">Publisher: O&#x27;Reilly, 2015</li>
+<li class="">Topics: ROS 1 fundamentals (concepts apply to ROS 2)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;A Systematic Approach to Learning Robot Programming with ROS 2&quot;</strong></p>
+<ul>
+<li class="">Authors: Newbury, Bohren, Robinson</li>
+<li class="">Publisher: CRC Press, 2024</li>
+<li class="">Topics: ROS 2 development from basics to advanced</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;ROS 2 Tutorials&quot; (Official)</strong></p>
+<ul>
+<li class="">Access: <a href="https://docs.ros.org/en/humble/Tutorials.html" target="_blank" rel="noopener noreferrer" class="">https://docs.ros.org/en/humble/Tutorials.html</a></li>
+<li class="">Content: Beginner to advanced tutorials</li>
+<li class="">Format: Online, free</li>
+</ul>
+</li>
+</ol>
+<p><strong>Deep Learning for Robotics:</strong></p>
+<ol start="8">
+<li class="">
+<p><strong>&quot;Deep Learning for Robot Perception and Cognition&quot;</strong></p>
+<ul>
+<li class="">Authors: Piater et al.</li>
+<li class="">Publisher: Academic Press, 2022</li>
+<li class="">Topics: Vision, learning, semantic understanding</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Reinforcement Learning for Robotics&quot;</strong> (Online Course)</p>
+<ul>
+<li class="">Platform: Coursera, edX, YouTube</li>
+<li class="">Instructors: Pieter Abbeel (UC Berkeley), Sergey Levine (UC Berkeley)</li>
+<li class="">Topics: Deep RL, policy gradients, sim-to-real</li>
+</ul>
+</li>
+</ol>
+<p><strong>Hands-On Resources:</strong></p>
+<ol start="10">
+<li class="">
+<p><strong>&quot;Practical Robotics in C++&quot;</strong></p>
+<ul>
+<li class="">Author: Lloyd Brombach</li>
+<li class="">Year: 2021</li>
+<li class="">Topics: ROS, OpenCV, hardware interfacing</li>
+<li class="">Code: Extensive examples</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Robot Operating System (ROS) for Absolute Beginners&quot;</strong></p>
+<ul>
+<li class="">Author: Lentin Joseph</li>
+<li class="">Publisher: Apress, 2022</li>
+<li class="">Topics: ROS fundamentals with projects</li>
+<li class="">Code: GitHub examples</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e54-online-courses-and-tutorials">E.5.4 Online Courses and Tutorials<a href="#e54-online-courses-and-tutorials" class="hash-link" aria-label="Direct link to E.5.4 Online Courses and Tutorials" title="Direct link to E.5.4 Online Courses and Tutorials" translate="no">​</a></h3>
+<p><strong>Coursera:</strong></p>
+<ul>
+<li class="">
+<p><strong>&quot;Modern Robotics&quot; Specialization</strong> (Northwestern University)</p>
+<ul>
+<li class="">Instructor: Kevin Lynch</li>
+<li class="">Duration: 6 courses</li>
+<li class="">Topics: Kinematics, dynamics, planning, control</li>
+<li class="">Certificate: Available</li>
+</ul>
+</li>
+<li class="">
+<p><strong>&quot;Robotics&quot; Specialization</strong> (University of Pennsylvania)</p>
+<ul>
+<li class="">Duration: 5 courses</li>
+<li class="">Topics: Aerial, autonomous, perception, estimation, mobility</li>
+</ul>
+</li>
+</ul>
+<p><strong>edX:</strong></p>
+<ul>
+<li class=""><strong>&quot;Robotics MicroMasters&quot; (University of Pennsylvania)</strong>
+<ul>
+<li class="">Duration: 4 courses</li>
+<li class="">Topics: Kinematics, mobility, perception, estimation, learning</li>
+</ul>
+</li>
+</ul>
+<p><strong>YouTube Channels:</strong></p>
+<ul>
+<li class=""><strong>MATLAB:</strong> Robotics tutorials and examples</li>
+<li class=""><strong>Articulated Robotics:</strong> Practical ROS 2 tutorials</li>
+<li class=""><strong>The Construct:</strong> ROS learning platform</li>
+<li class=""><strong>Jeremy Morgan:</strong> ROS 2 tutorials</li>
+</ul>
+<p><strong>Hands-On Platforms:</strong></p>
+<ul>
+<li class="">
+<p><strong>The Construct Sim</strong> (<a href="https://www.theconstructsim.com/" target="_blank" rel="noopener noreferrer" class="">https://www.theconstructsim.com/</a>)</p>
+<ul>
+<li class="">Online ROS development environment</li>
+<li class="">Curated courses and projects</li>
+<li class="">Simulation included</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Robot Ignite Academy</strong></p>
+<ul>
+<li class="">Structured ROS 2 learning paths</li>
+<li class="">Simulation-based exercises</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
+<p>This appendix provided comprehensive resource listings for Physical AI development:</p>
+<ul>
+<li class=""><strong>Datasets</strong>: Manipulation (YCB, ACRONYM), Navigation (TUM, EuRoC, KITTI), Human Motion (CMU, Human3.6M, AMASS), Grasping (Dex-Net, ContactDB)</li>
+<li class=""><strong>Pre-trained Models</strong>: Object detection (YOLO, Detectron2), segmentation (SAM, Mask R-CNN), pose estimation (OpenPose, HRNet), speech (Whisper, Vosk)</li>
+<li class=""><strong>3D Assets</strong>: Robot URDFs (ROS-Industrial, Clearpath, Unitree), environments (Gazebo, AWS, NVIDIA), object meshes (ShapeNet, ModelNet)</li>
+<li class=""><strong>Community</strong>: Forums (ROS Discourse, NVIDIA), GitHub repositories, Discord servers, research conferences</li>
+<li class=""><strong>Reading</strong>: Classic papers (Probabilistic Robotics, SLAM), recent work (sim-to-real, VLA models), textbooks (Craig, Lynch, Corke), online courses</li>
+</ul>
+<p>These resources enable effective research, development, and continuous learning in robotics. Bookmark key repositories and join active communities to stay current with rapidly evolving Physical AI technologies.</p>
+<p><strong>Recommended Starting Points:</strong></p>
+<ol>
+<li class="">New to ROS 2: Official tutorials + Articulated Robotics YouTube</li>
+<li class="">Need datasets: Start with COCO (vision), YCB (manipulation), TUM (SLAM)</li>
+<li class="">Pre-trained models: PyTorch Hub, Hugging Face, NVIDIA NGC</li>
+<li class="">Community help: ROS Discourse (async), ROS Discord (real-time)</li>
+<li class="">Deep dive: Modern Robotics textbook + online course</li>
+</ol>
+<p>Stay engaged with conferences (ICRA, IROS, RSS) and follow key researchers on arXiv for latest developments.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/muskaanfayyaz/Physical-AI-Humanoid-Robotics/tree/main/docs/chapters/appendix-e-datasets-and-resources.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/Physical-AI-Humanoid-Robotics/chapters/appendix-d-mathematical-foundations"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Appendix D: Mathematical Foundations</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#e1-publicly-available-robot-datasets" class="table-of-contents__link toc-highlight">E.1 Publicly Available Robot Datasets</a><ul><li><a href="#e11-manipulation-datasets" class="table-of-contents__link toc-highlight">E.1.1 Manipulation Datasets</a></li><li><a href="#e12-navigation-datasets" class="table-of-contents__link toc-highlight">E.1.2 Navigation Datasets</a></li><li><a href="#e13-human-motion-datasets" class="table-of-contents__link toc-highlight">E.1.3 Human Motion Datasets</a></li><li><a href="#e14-grasping-datasets" class="table-of-contents__link toc-highlight">E.1.4 Grasping Datasets</a></li></ul></li><li><a href="#e2-pre-trained-models-and-checkpoints" class="table-of-contents__link toc-highlight">E.2 Pre-trained Models and Checkpoints</a><ul><li><a href="#e21-object-detection-models" class="table-of-contents__link toc-highlight">E.2.1 Object Detection Models</a></li><li><a href="#e22-segmentation-models" class="table-of-contents__link toc-highlight">E.2.2 Segmentation Models</a></li><li><a href="#e23-pose-estimation-models" class="table-of-contents__link toc-highlight">E.2.3 Pose Estimation Models</a></li><li><a href="#e24-speech-recognition-models" class="table-of-contents__link toc-highlight">E.2.4 Speech Recognition Models</a></li></ul></li><li><a href="#e3-3d-model-libraries" class="table-of-contents__link toc-highlight">E.3 3D Model Libraries</a><ul><li><a href="#e31-robot-urdf-repositories" class="table-of-contents__link toc-highlight">E.3.1 Robot URDF Repositories</a></li><li><a href="#e32-environment-models" class="table-of-contents__link toc-highlight">E.3.2 Environment Models</a></li><li><a href="#e33-object-meshes-and-cad-files" class="table-of-contents__link toc-highlight">E.3.3 Object Meshes and CAD Files</a></li></ul></li><li><a href="#e4-community-resources-and-forums" class="table-of-contents__link toc-highlight">E.4 Community Resources and Forums</a><ul><li><a href="#e41-ros-discourse" class="table-of-contents__link toc-highlight">E.4.1 ROS Discourse</a></li><li><a href="#e42-nvidia-isaac-forums" class="table-of-contents__link toc-highlight">E.4.2 NVIDIA Isaac Forums</a></li><li><a href="#e43-github-repositories" class="table-of-contents__link toc-highlight">E.4.3 GitHub Repositories</a></li><li><a href="#e44-discord-communities" class="table-of-contents__link toc-highlight">E.4.4 Discord Communities</a></li><li><a href="#e45-research-conferences" class="table-of-contents__link toc-highlight">E.4.5 Research Conferences</a></li></ul></li><li><a href="#e5-recommended-reading-and-papers" class="table-of-contents__link toc-highlight">E.5 Recommended Reading and Papers</a><ul><li><a href="#e51-classic-robotics-papers" class="table-of-contents__link toc-highlight">E.5.1 Classic Robotics Papers</a></li><li><a href="#e52-recent-physical-ai-papers" class="table-of-contents__link toc-highlight">E.5.2 Recent Physical AI Papers</a></li><li><a href="#e53-textbooks-and-tutorials" class="table-of-contents__link toc-highlight">E.5.3 Textbooks and Tutorials</a></li><li><a href="#e54-online-courses-and-tutorials" class="table-of-contents__link toc-highlight">E.5.4 Online Courses and Tutorials</a></li></ul></li><li><a href="#summary" class="table-of-contents__link toc-highlight">Summary</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Course</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Physical-AI-Humanoid-Robotics/">Introduction</a></li><li class="footer__item"><a class="footer__link-item" href="/Physical-AI-Humanoid-Robotics/chapters/chapter-01-introduction-to-physical-ai">Foundations</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Resources</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://panaversity.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Panaversity<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://docs.ros.org/en/humble/" target="_blank" rel="noopener noreferrer" class="footer__link-item">ROS 2 Documentation<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://developer.nvidia.com/isaac-ros" target="_blank" rel="noopener noreferrer" class="footer__link-item">NVIDIA Isaac<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/muskaanfayyaz/Physical-AI-Humanoid-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Panaversity. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
