@@ -11,15 +11,17 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://yourusername.github.io',
+  url: 'https://muskaanfayyaz.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/physical-ai-textbook/',
+  baseUrl: '/Physical-AI-Humanoid-Robotics/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'yourusername', // Usually your GitHub org/user name.
-  projectName: 'physical-ai-textbook', // Usually your repo name.
+  organizationName: 'muskaanfayyaz', // Usually your GitHub org/user name.
+  projectName: 'Physical-AI-Humanoid-Robotics', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -42,7 +44,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/yourusername/physical-ai-textbook/tree/main/',
+          editUrl: 'https://github.com/muskaanfayyaz/Physical-AI-Humanoid-Robotics/tree/main/',
         },
         blog: false, // Disable blog
         theme: {
@@ -71,7 +73,7 @@ const config = {
             label: 'Textbook',
           },
           {
-            href: 'https://github.com/yourusername/physical-ai-textbook',
+            href: 'https://github.com/muskaanfayyaz/Physical-AI-Humanoid-Robotics',
             label: 'GitHub',
             position: 'right',
           },
@@ -115,7 +117,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/yourusername/physical-ai-textbook',
+                href: 'https://github.com/muskaanfayyaz/Physical-AI-Humanoid-Robotics',
               },
             ],
           },
