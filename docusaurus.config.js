@@ -42,9 +42,11 @@ const config = {
         docs: {
           routeBasePath: '/', // Serve docs at the site root
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/muskaanfayyaz/Physical-AI-Humanoid-Robotics/tree/main/',
+
+          // HACKATHON SUBMISSION: editUrl removed to make textbook read-only
+          // This prevents "Edit this page" links from appearing in the deployed site
+          // Repository remains public, but content is presented as a finished product
+          // editUrl: 'https://github.com/muskaanfayyaz/Physical-AI-Humanoid-Robotics/tree/main/', // REMOVED
         },
         blog: false, // Disable blog
         theme: {

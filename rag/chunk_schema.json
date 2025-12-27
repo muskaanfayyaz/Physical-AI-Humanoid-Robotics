@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Physical AI Textbook RAG Chunks",
+  "description": "Schema for chunked textbook content optimized for RAG systems",
+  "type": "object",
+  "required": ["metadata", "chunks"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Global metadata about the chunk collection",
+      "required": [
+        "source",
+        "total_chunks",
+        "target_tokens_min",
+        "target_tokens_max"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Source textbook name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Purpose and optimization details"
+        },
+        "total_chunks": {
+          "type": "integer",
+          "description": "Total number of chunks in this dataset"
+        },
+        "target_tokens_min": {
+          "type": "integer",
+          "description": "Minimum target token count per chunk"
+        },
+        "target_tokens_max": {
+          "type": "integer",
+          "description": "Maximum target token count per chunk"
+        },
+        "token_estimation_method": {
+          "type": "string",
+          "description": "Method used for token counting"
+        }
+      }
+    },
+    "chunks": {
+      "type": "array",
+      "description": "Array of content chunks",
+      "items": {
+        "$ref": "#/definitions/chunk"
+      }
+    }
+  },
+  "definitions": {
+    "chunk": {
+      "type": "object",
+      "required": ["chunk_id", "content", "metadata"],
+      "properties": {
+        "chunk_id": {
+          "type": "string",
+          "description": "Unique identifier for this chunk",
+          "pattern": "^[a-z0-9-]+_chunk_[0-9]{4}$",
+          "examples": [
+            "chapter-01-introduction-to-physical-ai_chunk_0001",
+            "appendix-a-hardware-setup-guides_chunk_0012"
+          ]
+        },
+        "content": {
+          "type": "string",
+          "description": "The actual text content of the chunk",
+          "minLength": 1
+        },
+        "metadata": {
+          "type": "object",
+          "required": [
+            "chapter_type",
+            "chapter_number",
+            "chapter_title_slug",
+            "filename",
+            "section_level",
+            "section_title",
+            "section_path",
+            "heading_hierarchy",
+            "part_number",
+            "total_parts",
+            "token_count",
+            "char_count"
+          ],
+          "properties": {
+            "chapter_type": {
+              "type": "string",
+              "enum": ["chapter", "appendix", "other"],
+              "description": "Type of source document"
+            },
+            "chapter_number": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Chapter or appendix number (appendix: a=1, b=2, etc.)"
+            },
+            "chapter_title_slug": {
+              "type": "string",
+              "description": "URL-friendly chapter title",
+              "examples": [
+                "introduction-to-physical-ai",
+                "hardware-setup-guides"
+              ]
+            },
+            "filename": {
+              "type": "string",
+              "description": "Source markdown filename (without extension)",
+              "examples": [
+                "chapter-01-introduction-to-physical-ai",
+                "appendix-a-hardware-setup-guides"
+              ]
+            },
+            "section_level": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6,
+              "description": "Markdown heading level (1=# through 6=######)"
+            },
+            "section_title": {
+              "type": "string",
+              "description": "Title of the section this chunk belongs to"
+            },
+            "section_path": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Hierarchical path of headings",
+              "examples": [
+                ["Chapter 1: Introduction", "From Digital to Physical AI"],
+                ["Appendix A", "Workstation Setup", "GPU Configuration"]
+              ]
+            },
+            "heading_hierarchy": {
+              "type": "string",
+              "description": "Human-readable heading path (joined with ' > ')",
+              "examples": [
+                "Chapter 1: Introduction > From Digital to Physical AI",
+                "Appendix A > Workstation Setup > GPU Configuration"
+              ]
+            },
+            "part_number": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Part number if section was split into multiple chunks"
+            },
+            "total_parts": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Total number of parts for this section"
+            },
+            "token_count": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Estimated token count for this chunk"
+            },
+            "char_count": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Character count for this chunk"
+            }
+          }
+        }
+      }
+    }
+  }
+}

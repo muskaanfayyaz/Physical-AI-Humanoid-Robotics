@@ -10,7 +10,10 @@
       "Bash(grep:*)",
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(wc:*)",
+      "Bash(pip install:*)",
+      "Bash(node -c:*)"
     ]
   }
 }
