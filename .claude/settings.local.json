@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(npm install:*)",
+      "Bash(cat:*)",
+      "Bash(timeout 30 tail:*)",
+      "Bash(npm run build:*)",
+      "Bash(tee:*)",
+      "Bash(grep:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)"
+    ]
+  }
+}
