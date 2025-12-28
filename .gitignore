@@ -53,6 +53,7 @@ coverage/
 
 # Ignore virtual environment
 .venv/
+.venv3.11/
 __pycache__/
 *.pyc
 
