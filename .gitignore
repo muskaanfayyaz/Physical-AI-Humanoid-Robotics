@@ -50,3 +50,9 @@ coverage/
 # Misc
 *.log
 .eslintcache
+
+# Ignore virtual environment
+.venv/
+__pycache__/
+*.pyc
+
