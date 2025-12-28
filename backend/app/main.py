@@ -43,9 +43,15 @@ async def lifespan(app: FastAPI):
     settings = get_settings()
 
     try:
-        # Initialize database
+        # Initialize database (may fail on Python 3.13 due to asyncpg compatibility)
         await init_db()
-        logger.info("✅ Database initialized")
+
+        # Check if database initialized successfully
+        from app.database import engine
+        if engine is not None:
+            logger.info("✅ Database initialized")
+        else:
+            logger.warning("⚠️  Database unavailable (Python 3.13 compatibility issue)")
 
         # Test connections
         embedding_service = get_embedding_service()
@@ -56,15 +62,16 @@ async def lifespan(app: FastAPI):
         qdrant_ok = await qdrant_service.test_connection()
         llm_ok = await llm_service.test_connection()
 
-        logger.info(f"✅ OpenAI Embeddings: {'OK' if openai_ok else 'FAILED'}")
-        logger.info(f"✅ OpenAI LLM: {'OK' if llm_ok else 'FAILED'}")
+        logger.info(f"✅ Gemini Embeddings: {'OK' if openai_ok else 'FAILED'}")
+        logger.info(f"✅ Gemini LLM: {'OK' if llm_ok else 'FAILED'}")
         logger.info(f"✅ Qdrant connection: {'OK' if qdrant_ok else 'FAILED'}")
 
         logger.info(f"🚀 {settings.app_name} v{settings.app_version} ready!")
 
     except Exception as e:
         logger.error(f"❌ Startup failed: {e}")
-        raise
+        # Don't raise - let app start anyway
+        logger.warning("⚠️  App starting in degraded mode")
 
     yield
 

@@ -101,54 +101,77 @@ async_session_maker: async_sessionmaker[AsyncSession] | None = None
 
 
 async def init_db() -> None:
-    """Initialize database connection and create tables."""
+    """
+    Initialize database connection and create tables.
+
+    Note: In Python 3.13 on Render, there's a known compatibility issue with asyncpg
+    and channel_binding. The app will start without database if connection fails.
+    """
     global engine, async_session_maker
 
     settings = get_settings()
 
-    # Convert postgresql:// to postgresql+asyncpg://
-    db_url = settings.postgres_url.replace("postgresql://", "postgresql+asyncpg://")
+    try:
+        # Convert postgresql:// to postgresql+asyncpg://
+        db_url = settings.postgres_url.replace("postgresql://", "postgresql+asyncpg://")
 
-    # Python 3.13 compatibility: Remove sslmode parameter that causes channel_binding error
-    # Neon uses sslmode=require by default which triggers channel_binding in Python 3.13
-    if "sslmode=" in db_url:
-        # Remove sslmode parameter from URL
-        import re
-        db_url = re.sub(r'[?&]sslmode=[^&]*', '', db_url)
-        db_url = re.sub(r'\?&', '?', db_url)  # Fix query string if needed
+        # Python 3.13 compatibility: Remove sslmode parameter that causes channel_binding error
+        # Neon uses sslmode=require by default which triggers channel_binding in Python 3.13
+        if "sslmode=" in db_url:
+            # Remove sslmode parameter from URL
+            import re
+            db_url = re.sub(r'[?&]sslmode=[^&]*', '', db_url)
+            db_url = re.sub(r'\?&', '?', db_url)  # Fix query string if needed
 
-    # Add ssl=true as query parameter instead (asyncpg compatible)
-    if "?" in db_url:
-        db_url += "&ssl=true"
-    else:
-        db_url += "?ssl=true"
+        # Add ssl=true as query parameter instead (asyncpg compatible)
+        if "?" in db_url:
+            db_url += "&ssl=true"
+        else:
+            db_url += "?ssl=true"
 
-    # Connection arguments for asyncpg (Python 3.13 compatibility)
-    connect_args = {
-        "ssl": "require",  # Use string instead of SSLContext to avoid channel_binding
-        "server_settings": {
-            "jit": "off",
-        },
-    }
+        # Connection arguments for asyncpg (Python 3.13 compatibility)
+        connect_args = {
+            "ssl": "require",  # Use string instead of SSLContext to avoid channel_binding
+            "server_settings": {
+                "jit": "off",
+            },
+        }
 
-    engine = create_async_engine(
-        db_url,
-        echo=settings.debug,
-        pool_size=settings.postgres_pool_size,
-        max_overflow=settings.postgres_max_overflow,
-        pool_pre_ping=True,
-        connect_args=connect_args,
-    )
+        engine = create_async_engine(
+            db_url,
+            echo=settings.debug,
+            pool_size=settings.postgres_pool_size,
+            max_overflow=settings.postgres_max_overflow,
+            pool_pre_ping=True,
+            connect_args=connect_args,
+        )
 
-    async_session_maker = async_sessionmaker(
-        engine,
-        class_=AsyncSession,
-        expire_on_commit=False,
-    )
+        async_session_maker = async_sessionmaker(
+            engine,
+            class_=AsyncSession,
+            expire_on_commit=False,
+        )
 
-    # Create tables
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+        # Create tables
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+
+    except TypeError as e:
+        if "channel_binding" in str(e):
+            # Known Python 3.13 + asyncpg compatibility issue
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.warning(
+                "⚠️  Database connection failed due to Python 3.13 compatibility issue. "
+                "App will start without database. "
+                "This is a known issue with asyncpg on Python 3.13. "
+                "Endpoints requiring database will return errors."
+            )
+            # Set engine to None so app knows database is unavailable
+            engine = None
+            async_session_maker = None
+        else:
+            raise
 
 
 async def close_db() -> None:
