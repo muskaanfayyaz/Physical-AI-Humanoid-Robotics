@@ -11,7 +11,7 @@ pydantic-settings==2.2.1
 # Database - PostgreSQL with async support
 sqlalchemy==2.0.27
 asyncpg==0.29.0
-psycopg2-binary==2.9.9
+# psycopg2-binary==2.9.9  # Removed - causes build issues on Render, asyncpg handles async connections
 
 # Vector database - Qdrant
 qdrant-client==1.8.2
