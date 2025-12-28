@@ -1,11 +1,12 @@
 """
-OpenAI embeddings generation service.
-Handles text-to-vector conversion using OpenAI's embedding models.
+Google Gemini embeddings generation service.
+Handles text-to-vector conversion using Gemini's embedding models.
+Uses FREE tier: 15 requests/minute, 1500 requests/day.
 """
 
 import asyncio
 from typing import List
-from openai import AsyncOpenAI
+import google.generativeai as genai
 import logging
 
 from app.config import get_settings
@@ -14,36 +15,63 @@ logger = logging.getLogger(__name__)
 
 
 class EmbeddingService:
-    """Service for generating text embeddings using OpenAI."""
+    """
+    Service for generating text embeddings using Google Gemini API.
+
+    Features:
+    - 768-dimensional embeddings (vs OpenAI's 1536)
+    - FREE tier with generous limits
+    - Optimized for retrieval tasks
+    """
 
     def __init__(self):
+        """
+        Initialize Gemini embedding service.
+        Configures API key and model settings.
+        """
         settings = get_settings()
-        self.client = AsyncOpenAI(api_key=settings.openai_api_key)
-        self.model = settings.openai_embedding_model
-        self.dimensions = settings.embedding_dimensions
+
+        # Configure Gemini API with your API key
+        genai.configure(api_key=settings.gemini_api_key)
+
+        self.model_name = settings.gemini_embedding_model  # "models/embedding-001"
+        self.dimensions = settings.embedding_dimensions  # 768 for Gemini
+
+        logger.info(f"Initialized Gemini Embedding Service: {self.model_name}")
 
     async def generate_embedding(self, text: str) -> List[float]:
         """
-        Generate embedding for a single text string.
+        Generate embedding for a single text string using Gemini.
 
         Args:
-            text: Input text to embed
+            text: Input text to embed (max 2048 tokens)
 
         Returns:
-            List of floats representing the embedding vector
+            List of 768 floats representing the embedding vector
 
         Raises:
-            Exception: If OpenAI API call fails
+            Exception: If Gemini API call fails
         """
         try:
-            response = await self.client.embeddings.create(
-                model=self.model,
-                input=text,
-                dimensions=self.dimensions if "text-embedding-3" in self.model else None,
+            # Use task_type="retrieval_document" for indexing documents
+            # Use task_type="retrieval_query" for search queries
+            result = genai.embed_content(
+                model=self.model_name,
+                content=text,
+                task_type="retrieval_document",  # Optimized for document storage
             )
-            return response.data[0].embedding
+
+            # Gemini returns embedding as a list directly
+            embedding = result['embedding']
+
+            # Verify dimensions
+            if len(embedding) != self.dimensions:
+                logger.warning(f"Unexpected embedding dimension: {len(embedding)} (expected {self.dimensions})")
+
+            return embedding
+
         except Exception as e:
-            logger.error(f"Failed to generate embedding: {e}")
+            logger.error(f"Failed to generate Gemini embedding: {e}")
             raise
 
     async def generate_embeddings_batch(
@@ -52,38 +80,49 @@ class EmbeddingService:
         """
         Generate embeddings for multiple texts with batching.
 
+        Note: Gemini API processes requests sequentially to respect rate limits.
+        FREE tier: 15 requests/minute (1 request every 4 seconds).
+
         Args:
             texts: List of input texts
-            batch_size: Number of texts to process per batch (max 2048 for OpenAI)
+            batch_size: Number of texts to process per batch (recommended: 100)
 
         Returns:
-            List of embedding vectors
+            List of 768-dimensional embedding vectors
 
         Raises:
-            Exception: If OpenAI API call fails
+            Exception: If Gemini API call fails
         """
         embeddings = []
 
-        # Process in batches to avoid rate limits
+        # Process in batches to manage rate limits and provide progress feedback
         for i in range(0, len(texts), batch_size):
             batch = texts[i : i + batch_size]
 
             try:
-                response = await self.client.embeddings.create(
-                    model=self.model,
-                    input=batch,
-                    dimensions=self.dimensions if "text-embedding-3" in self.model else None,
-                )
+                # Process each text in the batch
+                # Note: Gemini's batch embedding is done via embed_content with list input
+                batch_embeddings = []
 
-                # Extract embeddings in the same order
-                batch_embeddings = [item.embedding for item in response.data]
+                for text in batch:
+                    # Generate embedding for each text
+                    result = genai.embed_content(
+                        model=self.model_name,
+                        content=text,
+                        task_type="retrieval_document",
+                    )
+                    batch_embeddings.append(result['embedding'])
+
                 embeddings.extend(batch_embeddings)
 
                 logger.info(f"Processed batch {i // batch_size + 1}: {len(batch)} texts")
 
-                # Small delay to avoid rate limiting
-                if i + batch_size < len(texts):
-                    await asyncio.sleep(0.1)
+                # Delay to respect rate limits (FREE tier: 15 req/min = 1 req every 4s)
+                # For batch processing, add a small delay every 10 requests
+                if i + batch_size < len(texts) and len(batch_embeddings) >= 10:
+                    await asyncio.sleep(5)  # 5 second delay every 10 requests
+                elif i + batch_size < len(texts):
+                    await asyncio.sleep(0.5)  # Small delay between batches
 
             except Exception as e:
                 logger.error(f"Failed to process batch {i // batch_size + 1}: {e}")
@@ -93,16 +132,17 @@ class EmbeddingService:
 
     async def test_connection(self) -> bool:
         """
-        Test OpenAI API connection.
+        Test Gemini API connection by generating a test embedding.
 
         Returns:
             True if connection successful, False otherwise
         """
         try:
-            await self.generate_embedding("test")
+            await self.generate_embedding("test connection")
+            logger.info("Gemini API connection test: SUCCESS")
             return True
         except Exception as e:
-            logger.error(f"OpenAI connection test failed: {e}")
+            logger.error(f"Gemini API connection test failed: {e}")
             return False
 
 

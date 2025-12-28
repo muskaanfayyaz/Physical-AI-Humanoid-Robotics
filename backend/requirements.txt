@@ -15,10 +15,10 @@ psycopg2-binary==2.9.9
 # Vector database - Qdrant
 qdrant-client==1.7.3
 
-# OpenAI for embeddings
-openai==1.10.0
+# Google Gemini API for embeddings and chat (FREE tier)
+google-generativeai==0.3.2
 
-# HTTP client (used by OpenAI)
+# HTTP client
 httpx==0.26.0
 
 # Environment variable loading

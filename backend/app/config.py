@@ -16,10 +16,12 @@ class Settings(BaseSettings):
     app_version: str = "1.0.0"
     debug: bool = False
 
-    # OpenAI
-    openai_api_key: str
-    openai_embedding_model: str = "text-embedding-3-small"
-    embedding_dimensions: int = 1536
+    # Google Gemini API (FREE tier)
+    # Get your API key at: https://aistudio.google.com/app/apikey
+    gemini_api_key: str
+    gemini_embedding_model: str = "models/embedding-001"  # Gemini embedding model
+    gemini_chat_model: str = "gemini-1.5-flash"  # Gemini chat model (FREE)
+    embedding_dimensions: int = 768  # Gemini embeddings are 768-dimensional
 
     # Qdrant Cloud
     qdrant_url: str

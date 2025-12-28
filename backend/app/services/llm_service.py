@@ -1,10 +1,11 @@
 """
-LLM service for generating grounded answers using OpenAI.
+LLM service for generating grounded answers using Google Gemini.
 Implements strict context-based answering to prevent hallucinations.
+Uses FREE tier: gemini-1.5-flash with 15 requests/minute limit.
 """
 
 from typing import List, Dict, Optional
-from openai import AsyncOpenAI
+import google.generativeai as genai
 import logging
 
 from app.config import get_settings
@@ -13,14 +14,33 @@ logger = logging.getLogger(__name__)
 
 
 class LLMService:
-    """Service for generating answers using OpenAI's chat models."""
+    """
+    Service for generating answers using Google Gemini's chat models.
+
+    Features:
+    - gemini-1.5-flash: Fast, FREE, and accurate
+    - Low temperature (0.1) for factual responses
+    - Strict grounding to prevent hallucinations
+    """
 
     def __init__(self):
+        """
+        Initialize Gemini LLM service.
+        Configures API key and model settings.
+        """
         settings = get_settings()
-        self.client = AsyncOpenAI(api_key=settings.openai_api_key)
-        self.model = "gpt-4o-mini"  # Fast and cost-effective
-        self.max_tokens = 1000
-        self.temperature = 0.1  # Low temperature for factual responses
+
+        # Configure Gemini API with your API key
+        genai.configure(api_key=settings.gemini_api_key)
+
+        # Initialize Gemini model
+        self.model_name = settings.gemini_chat_model  # "gemini-1.5-flash"
+        self.model = genai.GenerativeModel(self.model_name)
+
+        self.max_tokens = 1000  # Max output tokens
+        self.temperature = 0.1  # Low temperature for factual, grounded responses
+
+        logger.info(f"Initialized Gemini LLM Service: {self.model_name}")
 
     async def answer_with_context(
         self,
@@ -66,16 +86,40 @@ Instructions: Answer ONLY using the context above. If the answer is not in the c
         messages.append({"role": "user", "content": user_message})
 
         try:
-            # Call OpenAI
-            response = await self.client.chat.completions.create(
-                model=self.model,
-                messages=messages,
-                temperature=self.temperature,
-                max_tokens=self.max_tokens,
+            # Build full prompt for Gemini (it doesn't use message roles like OpenAI)
+            # Combine system prompt, history, and user message into one prompt
+            full_prompt = f"""{self._get_rag_system_prompt()}
+
+{user_message}"""
+
+            # If there's conversation history, add it before the current question
+            if conversation_history:
+                history_text = "\n".join([
+                    f"{msg['role'].upper()}: {msg['content']}"
+                    for msg in conversation_history[-6:]
+                ])
+                full_prompt = f"""{self._get_rag_system_prompt()}
+
+Previous conversation:
+{history_text}
+
+{user_message}"""
+
+            # Call Gemini API
+            # Note: Gemini uses generate_content() instead of chat.completions
+            response = self.model.generate_content(
+                full_prompt,
+                generation_config=genai.types.GenerationConfig(
+                    temperature=self.temperature,
+                    max_output_tokens=self.max_tokens,
+                )
             )
 
-            answer = response.choices[0].message.content
-            finish_reason = response.choices[0].finish_reason
+            # Extract answer from Gemini response
+            answer = response.text
+
+            # Gemini doesn't provide finish_reason like OpenAI, so we set it manually
+            finish_reason = "stop" if response.candidates else "unknown"
 
             # Extract sources used
             sources = [
@@ -87,17 +131,21 @@ Instructions: Answer ONLY using the context above. If the answer is not in the c
                 for chunk in context_chunks
             ]
 
+            # Calculate approximate token usage (Gemini doesn't provide exact count)
+            # Estimate: ~1 token per 4 characters
+            tokens_used = len(full_prompt + answer) // 4
+
             return {
                 "answer": answer,
                 "sources": sources,
-                "model": self.model,
+                "model": self.model_name,
                 "finish_reason": finish_reason,
-                "tokens_used": response.usage.total_tokens,
+                "tokens_used": tokens_used,  # Estimated
                 "is_grounded": self._check_if_grounded(answer),
             }
 
         except Exception as e:
-            logger.error(f"LLM answer generation failed: {e}")
+            logger.error(f"Gemini answer generation failed: {e}")
             raise
 
     async def answer_from_selection(
@@ -134,29 +182,39 @@ Instructions: Answer ONLY using the selected text above. If the answer is not fo
         ]
 
         try:
-            # Call OpenAI
-            response = await self.client.chat.completions.create(
-                model=self.model,
-                messages=messages,
-                temperature=self.temperature,
-                max_tokens=self.max_tokens,
+            # Build full prompt for Gemini
+            full_prompt = f"""{system_prompt}
+
+{user_message}"""
+
+            # Call Gemini API
+            response = self.model.generate_content(
+                full_prompt,
+                generation_config=genai.types.GenerationConfig(
+                    temperature=self.temperature,
+                    max_output_tokens=self.max_tokens,
+                )
             )
 
-            answer = response.choices[0].message.content
-            finish_reason = response.choices[0].finish_reason
+            # Extract answer from Gemini response
+            answer = response.text
+            finish_reason = "stop" if response.candidates else "unknown"
+
+            # Calculate approximate token usage
+            tokens_used = len(full_prompt + answer) // 4
 
             return {
                 "answer": answer,
                 "selection_length": len(selected_text),
                 "selection_metadata": selection_metadata or {},
-                "model": self.model,
+                "model": self.model_name,
                 "finish_reason": finish_reason,
-                "tokens_used": response.usage.total_tokens,
+                "tokens_used": tokens_used,  # Estimated
                 "is_grounded": self._check_if_grounded(answer),
             }
 
         except Exception as e:
-            logger.error(f"Selection-based answer generation failed: {e}")
+            logger.error(f"Gemini selection-based answer generation failed: {e}")
             raise
 
     def _build_context(self, chunks: List[Dict[str, str]]) -> str:
@@ -242,20 +300,20 @@ Remember: The user selected this specific text for a reason. Respect the boundar
 
     async def test_connection(self) -> bool:
         """
-        Test OpenAI API connection.
+        Test Gemini API connection by generating a test response.
 
         Returns:
             True if connection successful
         """
         try:
-            response = await self.client.chat.completions.create(
-                model=self.model,
-                messages=[{"role": "user", "content": "test"}],
-                max_tokens=5,
+            response = self.model.generate_content(
+                "test",
+                generation_config=genai.types.GenerationConfig(max_output_tokens=5)
             )
+            logger.info("Gemini LLM connection test: SUCCESS")
             return True
         except Exception as e:
-            logger.error(f"LLM connection test failed: {e}")
+            logger.error(f"Gemini LLM connection test failed: {e}")
             return False
 
 
