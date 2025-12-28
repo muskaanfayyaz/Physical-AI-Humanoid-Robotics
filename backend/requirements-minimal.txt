@@ -1,0 +1,19 @@
+# Minimal requirements for troubleshooting
+# If main requirements.txt fails, try this file
+
+# Core FastAPI (minimal)
+fastapi
+uvicorn
+
+# Database
+sqlalchemy
+asyncpg
+
+# Vector DB
+qdrant-client
+
+# Gemini
+google-generativeai
+
+# Environment
+python-dotenv
