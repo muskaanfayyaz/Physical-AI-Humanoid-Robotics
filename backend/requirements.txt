@@ -7,6 +7,7 @@ python-multipart==0.0.9
 pydantic==2.6.4
 pydantic-settings==2.2.1
 
+
 # Database - PostgreSQL with async support
 sqlalchemy==2.0.27
 asyncpg==0.29.0
