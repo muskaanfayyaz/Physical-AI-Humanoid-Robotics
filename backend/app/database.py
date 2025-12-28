@@ -109,12 +109,26 @@ async def init_db() -> None:
     # Convert postgresql:// to postgresql+asyncpg://
     db_url = settings.postgres_url.replace("postgresql://", "postgresql+asyncpg://")
 
+    # Python 3.13 compatibility: Remove sslmode parameter that causes channel_binding error
+    # Neon uses sslmode=require by default which triggers channel_binding in Python 3.13
+    if "sslmode=" in db_url:
+        # Remove sslmode parameter from URL
+        import re
+        db_url = re.sub(r'[?&]sslmode=[^&]*', '', db_url)
+        db_url = re.sub(r'\?&', '?', db_url)  # Fix query string if needed
+
+    # Add ssl=true as query parameter instead (asyncpg compatible)
+    if "?" in db_url:
+        db_url += "&ssl=true"
+    else:
+        db_url += "?ssl=true"
+
     # Connection arguments for asyncpg (Python 3.13 compatibility)
     connect_args = {
+        "ssl": "require",  # Use string instead of SSLContext to avoid channel_binding
         "server_settings": {
-            "jit": "off",  # Disable JIT for better compatibility
+            "jit": "off",
         },
-        # Remove ssl parameter that causes channel_binding issues in Python 3.13
     }
 
     engine = create_async_engine(
