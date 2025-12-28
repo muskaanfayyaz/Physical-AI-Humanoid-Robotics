@@ -109,12 +109,21 @@ async def init_db() -> None:
     # Convert postgresql:// to postgresql+asyncpg://
     db_url = settings.postgres_url.replace("postgresql://", "postgresql+asyncpg://")
 
+    # Connection arguments for asyncpg (Python 3.13 compatibility)
+    connect_args = {
+        "server_settings": {
+            "jit": "off",  # Disable JIT for better compatibility
+        },
+        # Remove ssl parameter that causes channel_binding issues in Python 3.13
+    }
+
     engine = create_async_engine(
         db_url,
         echo=settings.debug,
         pool_size=settings.postgres_pool_size,
         max_overflow=settings.postgres_max_overflow,
         pool_pre_ping=True,
+        connect_args=connect_args,
     )
 
     async_session_maker = async_sessionmaker(
