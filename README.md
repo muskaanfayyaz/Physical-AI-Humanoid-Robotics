@@ -355,3 +355,31 @@ This textbook synthesizes knowledge from the robotics research community, indust
 6. Build towards the capstone project in Chapter 18
 
 Welcome to the exciting world of Physical AI and Humanoid Robotics!
+
+---
+
+## 📚 Project Documentation
+
+For setup guides, deployment instructions, and technical documentation, see the **[/documentation](./documentation/)** directory:
+
+### Quick Links
+
+- **[Setup Guide](./documentation/setup/setup-guide.md)** - Get started with the project
+- **[System Architecture](./documentation/architecture/system-architecture.md)** - Understand the system design
+- **[Deployment Guide](./documentation/deployment/github-pages.md)** - Deploy the textbook
+- **[Project Specification](./documentation/specs/project-spec.md)** - Full project spec
+- **[Constitution](./documentation/specs/constitution.md)** - Development standards
+
+### Documentation Structure
+
+```
+documentation/
+├── specs/          # Project specifications and standards
+├── architecture/   # System design documents
+├── setup/          # Installation and configuration guides
+├── deployment/     # Deployment guides (GitHub Pages, Render, etc.)
+├── api/            # API documentation
+└── development/    # Development workflow and logs
+```
+
+**See [documentation/README.md](./documentation/README.md) for the complete documentation index.**

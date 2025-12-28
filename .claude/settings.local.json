@@ -15,7 +15,8 @@
       "Bash(pip install:*)",
       "Bash(node -c:*)",
       "Bash(chmod:*)",
-      "mcp__Neon__load_resource"
+      "mcp__Neon__load_resource",
+      "Bash(mv:*)"
     ]
   }
 }
