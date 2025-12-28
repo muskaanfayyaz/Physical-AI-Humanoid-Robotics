@@ -20,3 +20,9 @@ google-generativeai==0.4.1
 
 # Environment variable loading
 python-dotenv==1.0.1
+
+# Logging
+python-json-logger==2.0.7
+
+# HTTP client
+httpx==0.26.0
