@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     api_prefix: str = "/api/v1"
 
     # RAG Configuration
-    chunks_file_path: str = "../rag/chunks.json"
+    chunks_file_path: str = "chunks.json"  # Changed to backend directory for Render deployment
     top_k_results: int = 5
     similarity_threshold: float = 0.7
 
