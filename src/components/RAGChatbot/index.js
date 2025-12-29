@@ -71,9 +71,12 @@ const RAGChatbot = () => {
 
       const payload = isSelectedTextQuery
         ? {
+            query: 'Explain this selection',
             selected_text: queryText,
-            session_id: sessionId,
-            additional_context: 'User selected this text from the Physical AI textbook',
+            selection_metadata: {
+              source: 'Physical AI textbook',
+              session_id: sessionId,
+            },
           }
         : {
             query: queryText,
