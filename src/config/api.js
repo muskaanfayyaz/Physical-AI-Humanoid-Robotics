@@ -13,9 +13,9 @@ export const API_CONFIG = {
   // Full API endpoints
   ENDPOINTS: {
     HEALTH: '/health',
-    SEARCH: '/api/v1/search',
-    ASK: '/api/v1/ask',
-    ASK_SELECTED: '/api/v1/ask/selected',
+    SEARCH: '/api/v1/search/',
+    ASK: '/api/v1/ask/',
+    ASK_SELECTED: '/api/v1/ask/selected/',
     DOCS: '/docs',
   },
 
