@@ -8,6 +8,7 @@ slug: /
 # Physical AI & Humanoid Robotics: From Simulation to Reality
 
 **A Comprehensive University-Level Textbook**
+**Version 2.0.0** — Now with Interactive RAG Chatbot 🤖
 
 ## Welcome
 
@@ -121,6 +122,25 @@ To succeed with this textbook, you should have:
 - Set up hardware gradually as needed for each section
 - Join online communities for support
 - Build towards the capstone project as a portfolio piece
+
+## 🤖 Interactive RAG Chatbot (NEW in v2.0!)
+
+This textbook now features an **AI-powered chatbot assistant** to enhance your learning experience:
+
+### Features
+- **💬 Ask Questions:** Get instant answers about any Physical AI or robotics topic
+- **📚 Grounded Responses:** All answers are based on actual textbook content (no hallucinations!)
+- **🔍 Text Selection:** Highlight any paragraph and click "Ask about selection" for detailed explanations
+- **💡 Context-Aware:** Maintains conversation history for follow-up questions
+- **📖 Source Citations:** Every answer includes references to relevant chapters
+
+### How to Use
+1. Look for the **purple 💬 button** in the bottom-right corner of every page
+2. Click to open the chatbot
+3. Type your question or select text on the page
+4. Get instant, accurate answers with source references
+
+**Powered by:** Google Gemini AI + RAG (Retrieval-Augmented Generation)
 
 ## Get Started
 

@@ -1,6 +1,6 @@
 {
   "name": "physical-ai-textbook",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Physical AI & Humanoid Robotics: From Simulation to Reality",
   "private": true,
   "scripts": {
