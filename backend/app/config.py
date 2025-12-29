@@ -34,7 +34,12 @@ class Settings(BaseSettings):
     postgres_max_overflow: int = 20
 
     # API Configuration
-    cors_origins: list[str] = ["http://localhost:3000", "https://muskaanfayyaz.github.io"]
+    cors_origins: list[str] = [
+        "http://localhost:3000",
+        "https://muskaanfayyaz.github.io",
+        "https://muskaanfayyaz.github.io/physical-ai-textbook",
+        "*",  # Allow all origins temporarily for testing
+    ]
     api_prefix: str = "/api/v1"
 
     # RAG Configuration
