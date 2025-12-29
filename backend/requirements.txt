@@ -7,9 +7,9 @@ python-multipart>=0.0.9,<1.0.0
 pydantic>=2.6.0,<3.0.0
 pydantic-settings>=2.2.0,<3.0.0
 
-# Database - PostgreSQL with async support (updated for Python 3.13 compatibility)
+# Database - PostgreSQL with async support (Python 3.13 compatible)
 sqlalchemy[asyncio]>=2.0.27,<3.0.0
-asyncpg>=0.30.0,<1.0.0
+psycopg[binary]>=3.1.0,<4.0.0  # Python 3.13 compatible, replaces asyncpg
 
 # Vector database - Qdrant
 qdrant-client>=1.8.0,<2.0.0

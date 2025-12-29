@@ -1,6 +1,6 @@
 """
 Database connection and session management for Neon Postgres.
-Uses SQLAlchemy with async support.
+Uses SQLAlchemy with async support via psycopg driver (Python 3.13 compatible).
 """
 
 from contextlib import asynccontextmanager
@@ -104,8 +104,8 @@ async def init_db() -> None:
     """
     Initialize database connection and create tables.
 
-    Note: In Python 3.13 on Render, there's a known compatibility issue with asyncpg
-    and channel_binding. The app will start without database if connection fails.
+    Uses psycopg driver which is compatible with Python 3.11+, including 3.13.
+    Falls back to degraded mode if database connection fails.
     """
     global engine, async_session_maker
 
@@ -117,33 +117,19 @@ async def init_db() -> None:
     try:
         logger.info("🔧 Initializing database connection...")
 
-        # Convert postgresql:// to postgresql+asyncpg://
-        db_url = settings.postgres_url.replace("postgresql://", "postgresql+asyncpg://")
+        # Convert postgresql:// to postgresql+psycopg://
+        # psycopg is the Python 3.13 compatible driver (replaces asyncpg)
+        db_url = settings.postgres_url.replace("postgresql://", "postgresql+psycopg://")
 
         # Log database host (hide credentials)
         db_host = db_url.split("@")[-1].split("/")[0] if "@" in db_url else "unknown"
         logger.info(f"📡 Connecting to database: {db_host}")
+        logger.info(f"🐍 Using psycopg driver (Python 3.13 compatible)")
 
-        # Python 3.13 compatibility: Remove sslmode parameter that causes channel_binding error
-        # Neon uses sslmode=require by default which triggers channel_binding in Python 3.13
-        if "sslmode=" in db_url:
-            # Remove sslmode parameter from URL
-            import re
-            db_url = re.sub(r'[?&]sslmode=[^&]*', '', db_url)
-            db_url = re.sub(r'\?&', '?', db_url)  # Fix query string if needed
-
-        # Add ssl=true as query parameter instead (asyncpg compatible)
-        if "?" in db_url:
-            db_url += "&ssl=true"
-        else:
-            db_url += "?ssl=true"
-
-        # Connection arguments for asyncpg (Python 3.13 compatibility)
+        # Connection arguments for psycopg
         connect_args = {
-            "ssl": "require",  # Use string instead of SSLContext to avoid channel_binding
-            "server_settings": {
-                "jit": "off",
-            },
+            "autocommit": False,
+            "prepare_threshold": 0,  # Disable prepared statements for connection pool compatibility
         }
 
         logger.info("🔌 Creating database engine...")
@@ -169,20 +155,6 @@ async def init_db() -> None:
             await conn.run_sync(Base.metadata.create_all)
 
         logger.info("✅ Database initialized successfully!")
-
-    except TypeError as e:
-        if "channel_binding" in str(e):
-            # Known Python 3.13 + asyncpg compatibility issue
-            logger.error(
-                "❌ Database connection failed due to Python 3.13 compatibility issue. "
-                "App will start without database. "
-                f"Error: {str(e)}"
-            )
-            engine = None
-            async_session_maker = None
-        else:
-            logger.error(f"❌ Database initialization failed with TypeError: {str(e)}")
-            raise
 
     except Exception as e:
         # Catch ALL other exceptions and log them clearly

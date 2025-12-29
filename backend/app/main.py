@@ -43,15 +43,15 @@ async def lifespan(app: FastAPI):
     settings = get_settings()
 
     try:
-        # Initialize database (may fail on Python 3.13 due to asyncpg compatibility)
+        # Initialize database (now using psycopg - Python 3.13 compatible!)
         await init_db()
 
         # Check if database initialized successfully
         from app.database import engine
         if engine is not None:
-            logger.info("✅ Database initialized")
+            logger.info("✅ Database initialized successfully")
         else:
-            logger.warning("⚠️  Database unavailable (Python 3.13 compatibility issue)")
+            logger.warning("⚠️  Database initialization failed - check logs for details")
 
         # Test connections
         embedding_service = get_embedding_service()
