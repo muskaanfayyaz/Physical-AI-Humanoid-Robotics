@@ -5,7 +5,7 @@
 // Backend URL - Update this based on environment
 export const API_CONFIG = {
   // Production (Render deployment)
-  BACKEND_URL: process.env.REACT_APP_BACKEND_URL || 'https://physical-ai-humanoid-robotics-kafl.onrender.com',
+  BACKEND_URL: 'https://physical-ai-humanoid-robotics-kafl.onrender.com',
 
   // API prefix
   API_PREFIX: '/api/v1',
