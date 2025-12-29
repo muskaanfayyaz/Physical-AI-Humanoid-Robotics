@@ -109,11 +109,20 @@ async def init_db() -> None:
     """
     global engine, async_session_maker
 
+    import logging
+    logger = logging.getLogger(__name__)
+
     settings = get_settings()
 
     try:
+        logger.info("🔧 Initializing database connection...")
+
         # Convert postgresql:// to postgresql+asyncpg://
         db_url = settings.postgres_url.replace("postgresql://", "postgresql+asyncpg://")
+
+        # Log database host (hide credentials)
+        db_host = db_url.split("@")[-1].split("/")[0] if "@" in db_url else "unknown"
+        logger.info(f"📡 Connecting to database: {db_host}")
 
         # Python 3.13 compatibility: Remove sslmode parameter that causes channel_binding error
         # Neon uses sslmode=require by default which triggers channel_binding in Python 3.13
@@ -137,6 +146,7 @@ async def init_db() -> None:
             },
         }
 
+        logger.info("🔌 Creating database engine...")
         engine = create_async_engine(
             db_url,
             echo=settings.debug,
@@ -146,6 +156,7 @@ async def init_db() -> None:
             connect_args=connect_args,
         )
 
+        logger.info("🔧 Creating session maker...")
         async_session_maker = async_sessionmaker(
             engine,
             class_=AsyncSession,
@@ -153,25 +164,37 @@ async def init_db() -> None:
         )
 
         # Create tables
+        logger.info("📋 Creating database tables...")
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
+
+        logger.info("✅ Database initialized successfully!")
 
     except TypeError as e:
         if "channel_binding" in str(e):
             # Known Python 3.13 + asyncpg compatibility issue
-            import logging
-            logger = logging.getLogger(__name__)
-            logger.warning(
-                "⚠️  Database connection failed due to Python 3.13 compatibility issue. "
+            logger.error(
+                "❌ Database connection failed due to Python 3.13 compatibility issue. "
                 "App will start without database. "
-                "This is a known issue with asyncpg on Python 3.13. "
-                "Endpoints requiring database will return errors."
+                f"Error: {str(e)}"
             )
-            # Set engine to None so app knows database is unavailable
             engine = None
             async_session_maker = None
         else:
+            logger.error(f"❌ Database initialization failed with TypeError: {str(e)}")
             raise
+
+    except Exception as e:
+        # Catch ALL other exceptions and log them clearly
+        logger.error(f"❌ Database initialization failed: {type(e).__name__}: {str(e)}")
+        logger.error(f"📋 Full error details:", exc_info=True)
+
+        # Set to None so app knows database is unavailable
+        engine = None
+        async_session_maker = None
+
+        # Don't raise - let app start in degraded mode
+        logger.warning("⚠️  App will start without database. Endpoints requiring database will fail.")
 
 
 async def close_db() -> None:
