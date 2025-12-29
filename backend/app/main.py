@@ -143,8 +143,9 @@ async def health_check():
         qdrant_service = get_qdrant_service()
         qdrant_ok = await qdrant_service.test_connection()
 
-        # Database is tested via dependency injection
-        database_ok = True
+        # Check database status from global engine
+        from app.database import engine
+        database_ok = engine is not None
 
         return HealthCheckResponse(
             status="healthy" if all([database_ok, qdrant_ok, openai_ok]) else "degraded",
@@ -165,6 +166,42 @@ async def health_check():
             qdrant_connected=False,
             openai_configured=False,
         )
+
+
+@app.get("/debug/config")
+async def debug_config():
+    """
+    Debug endpoint to check configuration (ONLY for troubleshooting).
+    DO NOT expose in production!
+    """
+    settings = get_settings()
+    from app.database import engine, async_session_maker
+
+    # Safe config info (no secrets)
+    return {
+        "app_name": settings.app_name,
+        "app_version": settings.app_version,
+        "debug": settings.debug,
+        "python_version": __import__("sys").version,
+        "database": {
+            "engine_initialized": engine is not None,
+            "session_maker_initialized": async_session_maker is not None,
+            "postgres_url_configured": bool(settings.postgres_url),
+            "postgres_url_prefix": settings.postgres_url[:20] + "..." if settings.postgres_url else None,
+        },
+        "qdrant": {
+            "url_configured": bool(settings.qdrant_url),
+            "api_key_configured": bool(settings.qdrant_api_key),
+            "collection_name": settings.qdrant_collection_name,
+        },
+        "gemini": {
+            "api_key_configured": bool(settings.gemini_api_key),
+            "embedding_model": settings.gemini_embedding_model,
+            "chat_model": settings.gemini_chat_model,
+        },
+        "cors_origins": settings.cors_origins,
+        "chunks_file_path": settings.chunks_file_path,
+    }
 
 
 if __name__ == "__main__":
