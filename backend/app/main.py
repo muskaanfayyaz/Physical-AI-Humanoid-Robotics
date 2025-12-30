@@ -204,6 +204,34 @@ async def debug_config():
     }
 
 
+@app.get("/debug/models")
+async def list_gemini_models():
+    """List available Gemini models for debugging."""
+    try:
+        import google.generativeai as genai
+        settings = get_settings()
+        genai.configure(api_key=settings.gemini_api_key)
+
+        models = []
+        for m in genai.list_models():
+            if 'generateContent' in m.supported_generation_methods:
+                models.append({
+                    "name": m.name,
+                    "display_name": m.display_name,
+                    "description": m.description[:100] if m.description else None,
+                })
+
+        return {
+            "available_models": models,
+            "configured_model": settings.gemini_chat_model,
+        }
+    except Exception as e:
+        return {
+            "error": str(e),
+            "configured_model": settings.gemini_chat_model,
+        }
+
+
 if __name__ == "__main__":
     import uvicorn
 
