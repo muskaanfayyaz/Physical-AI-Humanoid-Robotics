@@ -110,14 +110,20 @@ class ChunkService:
         try:
             # Step 1: Load chunks
             logger.info("Loading chunks from file...")
-            chunks = self.load_chunks_from_file()
+            all_chunks = self.load_chunks_from_file()
+
+            # Filter out chunks with empty content
+            chunks = [chunk for chunk in all_chunks if chunk.content and chunk.content.strip()]
+            empty_count = len(all_chunks) - len(chunks)
+            if empty_count > 0:
+                logger.warning(f"Skipping {empty_count} chunks with empty content")
 
             # Step 2: Ensure Qdrant collection exists
             logger.info("Creating Qdrant collection if needed...")
             await self.qdrant_service.create_collection()
 
             # Step 3: Generate embeddings
-            logger.info("Generating embeddings...")
+            logger.info(f"Generating embeddings for {len(chunks)} chunks...")
             texts = [chunk.content for chunk in chunks]
             embeddings = await self.embedding_service.generate_embeddings_batch(texts)
 
