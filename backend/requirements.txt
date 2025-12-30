@@ -15,7 +15,8 @@ psycopg[binary]>=3.1.0,<4.0.0  # Python 3.13 compatible, replaces asyncpg
 qdrant-client>=1.8.0,<2.0.0
 
 # Google Gemini API for embeddings and chat
-google-generativeai>=0.4.0,<1.0.0
+# Using latest 0.8.x which supports v1 API and modern models
+google-generativeai>=0.8.0,<1.0.0
 
 # Environment variable loading
 python-dotenv>=1.0.0,<2.0.0
