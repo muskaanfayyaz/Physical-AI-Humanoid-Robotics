@@ -175,19 +175,22 @@ class QdrantService:
             # Construct filter
             search_filter = Filter(must=filter_conditions) if filter_conditions else None
 
-            # Perform search
-            results = await self.client.search(
+            # Perform search (using query_points for AsyncQdrantClient)
+            from qdrant_client.models import QueryRequest, VectorQuery
+
+            results = await self.client.query_points(
                 collection_name=self.collection_name,
-                query_vector=query_vector,
+                query=query_vector,
                 limit=top_k,
                 query_filter=search_filter,
                 score_threshold=score_threshold,
                 with_payload=True,
             )
 
-            # Format results
+            # Format results (query_points returns .points attribute)
             formatted_results = []
-            for result in results:
+            result_points = results.points if hasattr(results, 'points') else results
+            for result in result_points:
                 formatted_results.append(
                     {
                         "chunk_id": result.payload.get("chunk_id"),
