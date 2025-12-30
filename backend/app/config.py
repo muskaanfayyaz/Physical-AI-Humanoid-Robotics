@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     # Get your API key at: https://aistudio.google.com/app/apikey
     gemini_api_key: str
     gemini_embedding_model: str = "models/text-embedding-004"  # Gemini embedding model
-    gemini_chat_model: str = "models/gemini-1.0-pro"  # Full model path with models/ prefix
+    gemini_chat_model: str = "gemini-pro"  # Stable base model, works with free tier
     embedding_dimensions: int = 768  # Gemini embeddings are 768-dimensional
 
     # Qdrant Cloud
