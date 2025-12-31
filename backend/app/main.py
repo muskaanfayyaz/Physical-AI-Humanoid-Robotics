@@ -232,6 +232,45 @@ async def list_gemini_models():
         }
 
 
+@app.get("/debug/chunks")
+async def debug_chunks():
+    """Check if chunks are actually stored in database and Qdrant."""
+    try:
+        from app.database import get_db
+        from app.database import ChunkMetadata
+        from sqlalchemy import select, func
+        from app.services.qdrant_service import get_qdrant_service
+
+        # Check Postgres
+        async for session in get_db():
+            postgres_count = await session.scalar(select(func.count(ChunkMetadata.id)))
+
+            # Get sample chunk
+            result = await session.execute(select(ChunkMetadata).limit(1))
+            sample_chunk = result.scalar_one_or_none()
+
+            break
+
+        # Check Qdrant
+        qdrant_service = get_qdrant_service()
+        collection_info = await qdrant_service.get_collection_info()
+
+        return {
+            "postgres": {
+                "total_chunks": postgres_count,
+                "sample_chunk_id": sample_chunk.chunk_id if sample_chunk else None,
+                "sample_content_length": len(sample_chunk.content) if sample_chunk else 0,
+            },
+            "qdrant": collection_info,
+            "status": "✅ Chunks found!" if postgres_count > 0 else "❌ No chunks found",
+        }
+    except Exception as e:
+        return {
+            "error": str(e),
+            "status": "❌ Error checking chunks",
+        }
+
+
 if __name__ == "__main__":
     import uvicorn
 
