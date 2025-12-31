@@ -133,10 +133,6 @@ class QdrantService:
             List of search results with payload and score
         """
         try:
-            # Debug: Log available methods on client
-            logger.info(f"AsyncQdrantClient type: {type(self.client)}")
-            logger.info(f"AsyncQdrantClient methods: {[m for m in dir(self.client) if 'search' in m.lower() or 'query' in m.lower()]}")
-
             # Build filter conditions
             filter_conditions = []
 
@@ -179,15 +175,19 @@ class QdrantService:
             # Construct filter
             search_filter = Filter(must=filter_conditions) if filter_conditions else None
 
-            # Perform search using AsyncQdrantClient (v1.12+)
-            results = await self.client.search(
+            # Perform search using query_points (v1.16+ replaces deprecated search method)
+            # Reference: https://python-client.qdrant.tech/qdrant_client.async_qdrant_client
+            response = await self.client.query_points(
                 collection_name=self.collection_name,
-                query_vector=query_vector,
+                query=query_vector,
                 limit=top_k,
                 query_filter=search_filter,
                 score_threshold=score_threshold,
                 with_payload=True,
             )
+
+            # query_points returns QueryResponse object with .points attribute
+            results = response.points if hasattr(response, 'points') else response
 
             # Format results
             formatted_results = []
