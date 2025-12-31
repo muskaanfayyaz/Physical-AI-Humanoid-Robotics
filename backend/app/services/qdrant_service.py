@@ -176,8 +176,6 @@ class QdrantService:
             search_filter = Filter(must=filter_conditions) if filter_conditions else None
 
             # Perform search (using query_points for AsyncQdrantClient)
-            from qdrant_client.models import QueryRequest, VectorQuery
-
             results = await self.client.query_points(
                 collection_name=self.collection_name,
                 query=query_vector,
