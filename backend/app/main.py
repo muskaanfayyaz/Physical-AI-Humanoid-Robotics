@@ -232,6 +232,24 @@ async def list_gemini_models():
         }
 
 
+@app.get("/debug/versions")
+async def debug_versions():
+    """Check installed package versions."""
+    try:
+        import qdrant_client
+        import google.generativeai as genai
+        import sqlalchemy
+
+        return {
+            "qdrant_client": qdrant_client.__version__,
+            "google_generativeai": genai.__version__,
+            "sqlalchemy": sqlalchemy.__version__,
+            "python": __import__("sys").version,
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+
 @app.get("/debug/chunks")
 async def debug_chunks():
     """
