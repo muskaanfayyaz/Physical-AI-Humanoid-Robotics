@@ -175,17 +175,30 @@ class QdrantService:
             # Construct filter
             search_filter = Filter(must=filter_conditions) if filter_conditions else None
 
-            # Perform search (using query_points for AsyncQdrantClient)
-            results = await self.client.query_points(
-                collection_name=self.collection_name,
-                query=query_vector,
-                limit=top_k,
-                query_filter=search_filter,
-                score_threshold=score_threshold,
-                with_payload=True,
-            )
+            # Perform search using AsyncQdrantClient
+            # Try different method names for compatibility across versions
+            try:
+                # Try new API (qdrant-client 1.9+)
+                results = await self.client.search(
+                    collection_name=self.collection_name,
+                    query_vector=query_vector,
+                    limit=top_k,
+                    query_filter=search_filter,
+                    score_threshold=score_threshold,
+                    with_payload=True,
+                )
+            except (AttributeError, TypeError):
+                # Fallback to alternative method
+                results = await self.client.query(
+                    collection_name=self.collection_name,
+                    query_vector=query_vector,
+                    limit=top_k,
+                    query_filter=search_filter,
+                    score_threshold=score_threshold,
+                    with_payload=True,
+                )
 
-            # Format results (query_points returns .points attribute)
+            # Format results (handle both list and object with .points)
             formatted_results = []
             result_points = results.points if hasattr(results, 'points') else results
             for result in result_points:
