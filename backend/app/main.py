@@ -234,7 +234,12 @@ async def list_gemini_models():
 
 @app.get("/debug/chunks")
 async def debug_chunks():
-    """Check if chunks are actually stored in database and Qdrant."""
+    """
+    Check if chunks are actually stored in database and Qdrant.
+
+    URL: https://physical-ai-humanoid-robotics-kafl.onrender.com/debug/chunks
+    (Note: NOT under /api/v1 prefix)
+    """
     try:
         from app.database import get_db
         from app.database import ChunkMetadata
