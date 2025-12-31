@@ -236,14 +236,13 @@ async def list_gemini_models():
 async def debug_versions():
     """Check installed package versions."""
     try:
-        import qdrant_client
-        import google.generativeai as genai
-        import sqlalchemy
+        from importlib.metadata import version
 
         return {
-            "qdrant_client": qdrant_client.__version__,
-            "google_generativeai": genai.__version__,
-            "sqlalchemy": sqlalchemy.__version__,
+            "qdrant_client": version("qdrant-client"),
+            "google_generativeai": version("google-generativeai"),
+            "sqlalchemy": version("sqlalchemy"),
+            "psycopg": version("psycopg"),
             "python": __import__("sys").version,
         }
     except Exception as e:
