@@ -133,6 +133,10 @@ class QdrantService:
             List of search results with payload and score
         """
         try:
+            # Debug: Log available methods on client
+            logger.info(f"AsyncQdrantClient type: {type(self.client)}")
+            logger.info(f"AsyncQdrantClient methods: {[m for m in dir(self.client) if 'search' in m.lower() or 'query' in m.lower()]}")
+
             # Build filter conditions
             filter_conditions = []
 
