@@ -12,7 +12,7 @@ sqlalchemy[asyncio]>=2.0.27,<3.0.0
 psycopg[binary]>=3.1.0,<4.0.0  # Python 3.13 compatible, replaces asyncpg
 
 # Vector database - Qdrant
-qdrant-client>=1.8.0,<2.0.0
+qdrant-client>=1.12.0,<2.0.0  # Updated for better async support
 
 # Google Gemini API for embeddings and chat
 # Using latest 0.8.x which supports v1 API and modern models
