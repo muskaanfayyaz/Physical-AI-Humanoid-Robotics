@@ -9,23 +9,27 @@ The Physical AI RAG Backend is a production-grade FastAPI application implementi
 ## Technology Stack
 
 ### Core Framework
-- **FastAPI 0.109.0** - Modern async web framework
-- **Uvicorn** - ASGI server with auto-reload
-- **Pydantic v2** - Data validation and settings management
+- **FastAPI 0.110+** - Modern async web framework
+- **Uvicorn 0.29+** - ASGI server with auto-reload
+- **Pydantic v2.6+** - Data validation and settings management
+- **Python 3.13** - Latest Python with performance improvements
 
 ### Databases
 - **Neon Postgres** - Metadata and conversation storage
-  - Async driver: `asyncpg`
-  - ORM: SQLAlchemy 2.0 with async support
+  - Async driver: `psycopg[binary] 3.1+` (Python 3.13 compatible)
+  - ORM: SQLAlchemy 2.0+ with async support
+  - Connection pooling with pool_pre_ping
 - **Qdrant Cloud** - Vector storage and similarity search
-  - Client: `qdrant-client 1.7.3`
+  - Client: `qdrant-client 1.12+`
   - Distance: Cosine similarity
+  - Uses `query_points()` API (v1.12+)
 
 ### AI Services
-- **OpenAI API** - Embedding generation
-  - Model: `text-embedding-3-small`
-  - Dimensions: 1536
-  - Batch processing: Up to 100 texts/batch
+- **Google Gemini API** - Embedding and chat generation
+  - Embedding Model: `text-embedding-004`
+  - Dimensions: 768
+  - Chat Model: `gemini-1.5-flash`
+  - Library: `google-generativeai 0.8+`
 
 ---
 
@@ -55,12 +59,12 @@ The Physical AI RAG Backend is a production-grade FastAPI application implementi
 ┌────────────┼──────────────────┼──────────────────┼───────────┐
 │            │                  │                  │           │
 │  ┌─────────▼──────────┐  ┌───▼──────────┐  ┌───▼─────────┐ │
-│  │  PostgreSQL DB     │  │  OpenAI API  │  │  Qdrant DB  │ │
-│  │  (Neon)            │  │              │  │  (Cloud)    │ │
+│  │  PostgreSQL DB     │  │  Gemini API  │  │  Qdrant DB  │ │
+│  │  (Neon)            │  │  (Google)    │  │  (Cloud)    │ │
 │  │                    │  │              │  │             │ │
 │  │ • chunk_metadata   │  │ • Embeddings │  │ • Vectors   │ │
-│  │ • search_queries   │  │ • 1536-dim   │  │ • Cosine    │ │
-│  │ • conversations    │  │ • Batching   │  │ • Filters   │ │
+│  │ • conversations    │  │ • 768-dim    │  │ • Cosine    │ │
+│  │ • messages         │  │ • Chat (LLM) │  │ • Filters   │ │
 │  └────────────────────┘  └──────────────┘  └─────────────┘ │
 │                     Data Layer                              │
 └─────────────────────────────────────────────────────────────┘
@@ -231,19 +235,16 @@ CREATE INDEX idx_session_id ON conversation_history(session_id);
 
 ```python
 {
-    "name": "physical_ai_textbook",
+    "name": "textbook_chunks",
     "vectors": {
-        "size": 1536,
+        "size": 768,  # Gemini text-embedding-004
         "distance": "Cosine"
     },
     "payload": {
         "chunk_id": "string",
         "content": "string",
-        "chapter_type": "string",
-        "chapter_number": "integer",
-        "section_title": "string",
-        "heading_hierarchy": "string",
-        "token_count": "integer"
+        "chapter": "string",
+        "metadata": "object"
     }
 }
 ```
@@ -433,11 +434,11 @@ curl http://localhost:8000/api/v1/ingest/stats
 ## Dependencies Overview
 
 ### Critical
-- `fastapi` - Web framework
-- `sqlalchemy[asyncio]` - ORM
-- `asyncpg` - Postgres driver
-- `qdrant-client` - Vector DB
-- `openai` - Embeddings
+- `fastapi>=0.110.0` - Web framework
+- `sqlalchemy[asyncio]>=2.0.27` - ORM with async support
+- `psycopg[binary]>=3.1.0` - Postgres driver (Python 3.13 compatible)
+- `qdrant-client>=1.12.0` - Vector DB (uses query_points API)
+- `google-generativeai>=0.8.0` - Gemini API for embeddings and chat
 
 ### Supporting
 - `pydantic-settings` - Config
@@ -468,13 +469,16 @@ curl http://localhost:8000/api/v1/ingest/stats
 
 ## Version History
 
-### v1.0.0 (Current)
+### v1.0.0 (Current - January 2026)
 - Initial production release
-- 632 chunks support
-- OpenAI embeddings
-- Qdrant + Postgres integration
-- Complete CRUD operations
-- Health monitoring
+- Google Gemini integration (embeddings + chat)
+- Python 3.13 compatibility (using psycopg)
+- Qdrant v1.12+ support (query_points API)
+- RAG implementation with grounded answers
+- Conversation history management
+- Complete API endpoints (ingest, search, ask, conversation)
+- Debug endpoints for troubleshooting
+- Health monitoring and connection testing
 
 ---
 

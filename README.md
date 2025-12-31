@@ -360,12 +360,21 @@ Welcome to the exciting world of Physical AI and Humanoid Robotics!
 
 ## 📚 Project Documentation
 
-For setup guides, deployment instructions, and technical documentation, see the **[/documentation](./documentation/)** directory:
+For setup guides, deployment instructions, and technical documentation, see the **[/documentation](./documentation/)** directory.
+
+### 📝 Planning & Design Documents
+
+This project was meticulously planned before implementation:
+
+- **[Technical Planning](./documentation/specs/technical-planning.md)** ⭐ - Complete technical planning and architecture decisions
+- **[Implementation Phases](./documentation/specs/implementation-phases.md)** ⭐ - 6-phase implementation timeline with milestones
+- **[Task Breakdown](./documentation/specs/task-breakdown.md)** ⭐ - Detailed task list showing project planning process
 
 ### Quick Links
 
 - **[Setup Guide](./documentation/setup/setup-guide.md)** - Get started with the project
 - **[System Architecture](./documentation/architecture/system-architecture.md)** - Understand the system design
+- **[Backend Architecture](./documentation/architecture/backend-architecture.md)** - Backend implementation details
 - **[Deployment Guide](./documentation/deployment/github-pages.md)** - Deploy the textbook
 - **[Project Specification](./documentation/specs/project-spec.md)** - Full project spec
 - **[Constitution](./documentation/specs/constitution.md)** - Development standards
@@ -374,12 +383,24 @@ For setup guides, deployment instructions, and technical documentation, see the 
 
 ```
 documentation/
-├── specs/          # Project specifications and standards
-├── architecture/   # System design documents
-├── setup/          # Installation and configuration guides
-├── deployment/     # Deployment guides (GitHub Pages, Render, etc.)
-├── api/            # API documentation
-└── development/    # Development workflow and logs
+├── specs/                       # Project specifications, planning, and standards
+│   ├── technical-planning.md   # ⭐ Technical planning document
+│   ├── implementation-phases.md # ⭐ Implementation phases and timeline
+│   ├── task-breakdown.md       # ⭐ Detailed task breakdown
+│   ├── project-spec.md         # Project specification
+│   ├── course-outline.md       # Course outline
+│   └── constitution.md         # Development standards
+├── architecture/                # System design documents
+│   ├── system-architecture.md  # Overall system
+│   ├── backend-architecture.md # Backend implementation
+│   ├── rag-system-architecture.md # ⭐ RAG system details
+│   └── chatbot-architecture.md # ⭐ Chatbot implementation
+├── guides/                      # User guides
+│   └── chatbot-user-guide.md   # ⭐ AI chatbot user guide
+├── setup/                       # Installation and configuration guides
+├── deployment/                  # Deployment guides (GitHub Pages, Render, etc.)
+├── api/                         # API documentation
+└── development/                 # Development workflow and logs
 ```
 
 **See [documentation/README.md](./documentation/README.md) for the complete documentation index.**

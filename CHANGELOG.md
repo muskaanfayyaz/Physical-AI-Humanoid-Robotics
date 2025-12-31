@@ -2,7 +2,7 @@
 
 All notable changes to the Physical AI & Humanoid Robotics textbook will be documented in this file.
 
-## [2.0.0] - 2024-12-29
+## [2.2.0] - 2024-12-29
 
 ### 🎉 Major Features
 
