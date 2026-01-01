@@ -106,7 +106,15 @@ const Chatbot = ({ apiBaseUrl = 'http://localhost:8000/api/v1' }) => {
       }
 
       if (!response.ok) {
-        throw new Error(`API error: ${response.status} ${response.statusText}`);
+        // Try to parse error response
+        let errorMessage = `API error: ${response.status} ${response.statusText}`;
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.detail || errorMessage;
+        } catch (e) {
+          // If JSON parsing fails, use status text
+        }
+        throw new Error(errorMessage);
       }
 
       const data = await response.json();
@@ -136,10 +144,25 @@ const Chatbot = ({ apiBaseUrl = 'http://localhost:8000/api/v1' }) => {
       console.error('Chatbot error:', err);
       setError(err.message);
 
+      // Check if it's a quota error
+      const errorStr = err.message.toLowerCase();
+      const isQuotaError = errorStr.includes('quota') ||
+                          errorStr.includes('rate limit') ||
+                          errorStr.includes('limit exceeded') ||
+                          errorStr.includes('429') ||
+                          errorStr.includes('resource_exhausted');
+
       // Add error message
+      let errorContent;
+      if (isQuotaError) {
+        errorContent = '⚠️ You have exceeded your daily API limit. Please try again later or contact the administrator.';
+      } else {
+        errorContent = `❌ Sorry, I encountered an error. Please make sure the backend is running and the Google API key is configured.\n\nError: ${err.message}`;
+      }
+
       const errorMessage = {
         role: 'assistant',
-        content: `Sorry, I encountered an error: ${err.message}. Please try again or check if the backend is running.`,
+        content: errorContent,
         isError: true,
         timestamp: new Date().toISOString(),
       };
